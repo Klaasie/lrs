@@ -14,3 +14,4 @@ fourseven:scss
 tap:i18n
 dburles:collection-helpers
 fastclick
+materialize:materialize@=0.97.0

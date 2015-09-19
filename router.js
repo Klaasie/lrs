@@ -13,7 +13,7 @@ Router.onBeforeAction(function() {
 });
 
 Router.onAfterAction(function() {
-
+	Materialize.toast('Welcome back, ' + Meteor.user().fullName() + '!', 4000);
 },{
 	except: ['login']
 });

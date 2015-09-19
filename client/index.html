@@ -4,7 +4,7 @@
 
 <template name="application">
 	<header>
-		<nav class="">
+		<nav>
 			{{> sidemenu}}
 			<div class="nav-wrapper">
 				<a href="#" class="brand-logo center"><i class="large material-icons">polymer</i></a>
@@ -12,7 +12,16 @@
 				{{> topmenu}}
 			</div>
 		</nav>
-
 	</header>
+	<main>
+		<div id="container">
+			<div class="container">
+				{{> yield}}
+			</div>
+		</div>
+	</main>
+	<footer>
+		<!-- footer -->
+	</footer>
 </template>
 

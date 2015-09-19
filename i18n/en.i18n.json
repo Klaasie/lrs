@@ -1,0 +1,9 @@
+{
+	"menu": {
+		"users": "Users",
+		"lrs": "Learning Record Stores"
+	},
+	"dashboard": {
+		"intro": "Welcome!"
+	}
+}
