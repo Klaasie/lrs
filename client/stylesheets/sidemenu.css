@@ -1,0 +1,7 @@
+nav ul.side-nav li.user{
+	padding: 20px 20px 0;
+}
+
+nav ul.side-nav li.user .user-avatar {
+	margin: 0px auto;
+}
