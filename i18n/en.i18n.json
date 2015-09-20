@@ -1,7 +1,9 @@
 {
 	"menu": {
+		"dashboard": "Dashboard",
 		"users": "Users",
-		"lrs": "Learning Record Stores"
+		"lrs": "Learning Record Stores",
+		"logout": "Logout"
 	},
 	"dashboard": {
 		"intro": "Welcome!"
