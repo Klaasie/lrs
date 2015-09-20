@@ -1,0 +1,57 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+.index nav ul a,
+.index nav .brand-logo {
+  color: #444;
+}
+
+.index p {
+  line-height: 2rem;
+}
+
+.index .button-collapse {
+  color: #26a69a;
+}
+
+.index .parallax-container {
+  min-height: 380px;
+  line-height: 0;
+  height: auto;
+  color: rgba(255,255,255,.9);
+}
+  .index .parallax-container .section {
+    width: 100%;
+  }
+
+@media only screen and (max-width : 992px) {
+  .index .parallax-container .section {
+    position: absolute;
+    top: 40%;
+  }
+  .index #index-banner .section {
+    top: 10%;
+  }
+}
+
+@media only screen and (max-width : 600px) {
+  .index #index-banner .section {
+    top: 0;
+  }
+}
+
+.index .icon-block {
+  padding: 0 15px;
+}
+.index .icon-block .material-icons {
+  font-size: inherit;
+}
+
+.index footer.page-footer {
+  margin: 0;
+}
