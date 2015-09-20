@@ -3,5 +3,7 @@ nav ul.side-nav li.user{
 }
 
 nav ul.side-nav li.user .user-avatar {
+	width: 80px;
+	height: 80px;
 	margin: 0px auto;
 }
