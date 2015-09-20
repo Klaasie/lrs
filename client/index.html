@@ -8,7 +8,6 @@
 			{{> sidemenu}}
 			<div class="nav-wrapper">
 				<a href="#" class="brand-logo center"><i class="large material-icons">polymer</i></a>
-				
 				{{> topmenu}}
 			</div>
 		</nav>
@@ -16,6 +15,9 @@
 	<main>
 		<div id="container">
 			<div class="container">
+				{{#if message}}
+					{{> messages}}
+				{{/if}}
 				{{> yield}}
 			</div>
 		</div>
@@ -25,3 +27,20 @@
 	</footer>
 </template>
 
+<template name="loading">
+	<div class="center loading">
+		<div class="preloader-wrapper big active">
+			<div class="spinner-layer spinner-green-only">
+				<div class="circle-clipper left">
+					<div class="circle"></div>
+				</div>
+				<div class="gap-patch">
+					<div class="circle"></div>
+				</div>
+				<div class="circle-clipper right">
+					<div class="circle"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
