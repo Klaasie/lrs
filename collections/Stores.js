@@ -23,4 +23,18 @@ Stores.attachSchema(new SimpleSchema({
 			}
 		}
 	},
+	users: {
+		type: Object,
+		optional: true
+	},
+	'users.$': {
+		type: String
+	},
+	statements: {
+		type: Object,
+		optional: true
+	},
+	'statements.$': {
+		type: String
+	}
 }));
