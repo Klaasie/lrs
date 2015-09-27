@@ -1,0 +1,1 @@
+Statements = new Mongo.Collection("statements");
