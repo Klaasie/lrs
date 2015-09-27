@@ -13,7 +13,7 @@ Router.onBeforeAction(function() {
 
 	this.next();
 },{
-	except: ['login', 'index', 'endpoint']
+	except: ['login', 'index', 'xAPI']
 });
 
 /**
@@ -22,7 +22,7 @@ Router.onBeforeAction(function() {
 Router.onAfterAction(function() {
 	// Do something?
 },{
-	except: ['login', 'endpoint']
+	except: ['login', 'xAPI']
 });
 
 /**
@@ -76,7 +76,7 @@ Router.route('/dashboard', {
 		this.render('dashboard');	
 	},
 	waitOn: function(){
-		return Meteor.subscribe('stores');
+		return [Meteor.subscribe('stores'), Meteor.subscribe('users')];
 	}
 });
 
@@ -90,5 +90,20 @@ Router.route('/stores', {
 	},
 	waitOn: function(){
 		return Meteor.subscribe('stores');
+	}
+});
+
+/**
+ * Rendering store with id
+ */
+Router.route('/stores/:_id', {
+	action: function(){
+		var store =  Stores.findOne({_id: this.params._id});
+
+		this.layout('application');
+		this.render('store', {data: store});
+	},
+	waitOn: function(){
+		return [Meteor.subscribe('stores'), Meteor.subscribe('users')];
 	}
 });
