@@ -104,6 +104,6 @@ Router.route('/stores/:_id', {
 		this.render('store', {data: store});
 	},
 	waitOn: function(){
-		return [Meteor.subscribe('stores'), Meteor.subscribe('users')];
+		return [Meteor.subscribe('stores'), Meteor.subscribe('users'), Meteor.subscribe('statements', this.params._id)];
 	}
 });
