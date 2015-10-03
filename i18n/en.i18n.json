@@ -7,5 +7,12 @@
 	},
 	"dashboard": {
 		"intro": "Welcome!"
+	},
+	"store": {
+		"statements": "Statements",
+		"statementslastweek": "statements last week",
+		"users": "Users",
+		"activelastweek": "active last week",
+		"moreinfo": "More info"
 	}
 }
