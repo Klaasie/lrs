@@ -23,6 +23,12 @@ header, main, footer {
 	}
 }
 
+@media only screen and (min-width: 993px) {
+	.container {
+		width: 90%;
+	}
+}
+
 .center.loading {
 	margin-top: 20%;
 }
@@ -30,6 +36,11 @@ header, main, footer {
 nav .nav-wrapper i {
 	height: 56px;
 	line-height: 56px;
+}
+
+#container {
+    top: 13px;
+    position: relative;
 }
 
 .container {
