@@ -16,6 +16,12 @@ Meteor.methods({
 			data.response.message = "You are not part of any learning record store";
 		}
 
+		// We need a created at
+		if(typeof data.statement.stored == "undefined"){
+			var date = new Date();
+			data.statement.stored = date.toISOString();
+		}
+
 		// I think we have all the necessary information
 
 		// Statements should live on their own, therefore
@@ -29,7 +35,7 @@ Meteor.methods({
 			}
 		}, function(error, count){
 			if(error){
-				console.log(error);
+				
 			}
 		});
 
@@ -39,8 +45,7 @@ Meteor.methods({
 				statements: statementId
 			}
 		},function(error, count){
-			console.log(error);
-			console.log(count);
+			
 		});
 
 		data.response.statusCode = 200;
