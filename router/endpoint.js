@@ -58,15 +58,29 @@ Router.map(function() {
             }
             
             if(requestMethod == "POST"){
-                statement = this.request.body;
+                // Create statement object
+                statement = new Statement(this.request.body);
+
+                statement.validate();
+
+                console.log(statement.getStatus());
+
+                if(statement.getStatus != "passed"){
+                    responses = statement.getError();
+                }
+
+                this.response.writeHead(response.statusCode, {'Content-Type': 'application/json'});
+                this.response.end(JSON.stringify([responses]));
+
+                return false;
 
                 data.user = user;
                 data.statement = statement;
                 data.response = response;
 
-                Meteor.call('saveStatement', data, function(error, result){
+                /*Meteor.call('saveStatement', data, function(error, result){
                     response = result;
-                });
+                });*/
             }
 
             // Write response
