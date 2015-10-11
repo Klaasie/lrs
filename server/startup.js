@@ -1,9 +1,10 @@
 Meteor.startup(function(){
-    var usersCount = Meteor.users.find().count();
 
+    // For install
+    var usersCount = Meteor.users.find().count();
     if(usersCount == 0){
         // Generate secret
-        var secret = 'admin:1@Password';
+        var secret = 'admin@lrs.nl:1@Password';
         var secretArray = CryptoJS.enc.Utf8.parse(secret);
         var secretBase64 = CryptoJS.enc.Base64.stringify(secretArray);
 

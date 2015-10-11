@@ -1,6 +1,10 @@
 Template.storeOverview.helpers({
 	statementsCount: function(){
-		return this.statements.length;
+		if(typeof this.statements != "undefined"){
+			return this.statements.length;
+		} else {
+			return 0;
+		}
 	},
 	statementsLastWeek: function(){
 		// Get one week ago

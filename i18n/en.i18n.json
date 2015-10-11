@@ -8,6 +8,9 @@
 	"dashboard": {
 		"intro": "Welcome!"
 	},
+	"stores": {
+		"addStore": "Add Learning Record Store"
+	},
 	"store": {
 		"statements": "Statements",
 		"statementslastweek": "statements last week",
