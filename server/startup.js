@@ -1,85 +1,37 @@
 Meteor.startup(function(){
-	
+    var usersCount = Meteor.users.find().count();
 
-	/**
-	 * Create admin user
-	 */
-	/*var user = Meteor.users.findOne("GLm47HTJDSW8bnZNC");
-	if (user) {
-      // Need _id of existing user record so this call must come 
-      // after `Accounts.createUser` or `Accounts.onCreate`
-      Roles.addUsersToRoles(user, ['admin']);
-    }*/
+    if(usersCount == 0){
+        // Generate secret
+        var secret = 'admin:1@Password';
+        var secretArray = CryptoJS.enc.Utf8.parse(secret);
+        var secretBase64 = CryptoJS.enc.Base64.stringify(secretArray);
 
-    /**
-     * Create test accounts
-     */
-    /*for (index = 0; index < 30; index++) {
-        accountDetails = {
-            "username": "test" + index,
-            "email": "test" + index +"@gmail.com",
-            "password": "1@Password"
+        // Insert key
+        Secrets.insert({
+            userId: "empty",
+            secret: secretBase64
+        });
+
+        /**
+         * Create admin user
+         */
+        var userId = Accounts.createUser({
+            username: "admin",
+            email: "admin@lrs.nl",
+            password: "1@Password",
+            profile: {
+                firstname: "Admin",
+                lastname: "User"
+            }
+        });
+    
+        // Give role
+        var user = Meteor.users.findOne(userId);
+        if (user) {
+          // Need _id of existing user record so this call must come 
+          // after `Accounts.createUser` or `Accounts.onCreate`
+          Roles.addUsersToRoles(user, ['admin']);
         }
-        Accounts.createUser(accountDetails);
-    }*/
-
-    /**
-     * Add users to LRS
-     */
- //    var users = Meteor.users.find({}).fetch();
- //    var store = Stores.findOne("fzgA7Bfbdyq65zxZ7");
-
- //    var i = 0
-	// _.each(users, function(value, index){
-
-	// 	if(i > 1 && i < 20){
-	// 		Stores.update(store._id, {
-	// 			$push: {
-	// 				users: value._id
-	// 			}
-	// 		});
-	// 	}
-
-	// 	i++;
-	// });  
-	// 
-	/**
-     * Generate secrets for users
-     */
- //    var users = Meteor.users.find({}).fetch();
-
- //    var i = 0
-	// _.each(users, function(value, index){
-
-	// 	var secret = value.emails[0].address + ":1@Password";
-	// 	var secretArray = CryptoJS.enc.Utf8.parse(secret);
-	// 	var secretBase64 = CryptoJS.enc.Base64.stringify(secretArray);
-
-	// 	if(i == 0){
-	// 		var secret = value.emails[0].address + ":*******";
-	// 		var secretArray = CryptoJS.enc.Utf8.parse(secret);
-	// 		var secretBase64 = CryptoJS.enc.Base64.stringify(secretArray);
-
-	// 		// me
-	// 		Secrets.insert({
-	// 			userid: value._id,
-	// 			secret: secretBase64
-	// 		});
-			
-	// 	}else{
-	// 		Secrets.insert({
-	// 			userid: value._id,
-	// 			secret: secretBase64
-	// 		});
-	// 	}
-
-	// 	i++;
-	// }); 
-
-});
-
-Accounts.onCreateUser(function (options, user) {
-  // create secret key
-
-  return user;
+    }
 });

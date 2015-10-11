@@ -8,7 +8,6 @@ iron:router
 accounts-password
 useraccounts:core
 useraccounts:materialize
-utilities:avatar
 fourseven:scss
 tap:i18n
 dburles:collection-helpers
@@ -33,3 +32,4 @@ random
 ejson
 spacebars
 check
+utilities:avatar

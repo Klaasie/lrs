@@ -11,5 +11,5 @@ Meteor.publish("statements", function (storeId){
 
 	var store = Stores.findOne(storeId);
 
-	return Statements.find({_id: {$in: store.statements}});
+	return Statements.find({},{_id: {$in: store.statements}});
 });

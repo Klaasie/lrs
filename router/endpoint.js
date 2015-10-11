@@ -46,7 +46,7 @@ Router.map(function() {
                     return false;
                 }
 
-                user = Meteor.users.findOne(secret.userid);
+                user = Meteor.users.findOne(secret.userId);
                 
             }else{
                 // Provide with error since we only support one so far.
@@ -57,36 +57,41 @@ Router.map(function() {
                 return false;
             }
             
+            // Handling of POST method
             if(requestMethod == "POST"){
                 // Create statement object
                 statement = new Statement(this.request.body);
 
+                // Validate the statement
                 statement.validate();
 
-                console.log(statement.getStatus());
+                // If no pass, provide with error
+                if(statement.getStatus() != "passed"){
+                    // Set response
+                    response.statusCode = 400;
+                    response.message = statement.getError();
 
-                if(statement.getStatus != "passed"){
-                    responses = statement.getError();
+                    // Give response
+                    this.response.writeHead(response.statusCode, {'Content-Type': 'application/json'});
+                    this.response.end(JSON.stringify(response));
+
+                    return false;
                 }
 
-                this.response.writeHead(response.statusCode, {'Content-Type': 'application/json'});
-                this.response.end(JSON.stringify([responses]));
-
-                return false;
-
+                // Create data object to make this easier
                 data.user = user;
-                data.statement = statement;
+                data.statement = statement.getStatement();
                 data.response = response;
 
-                /*Meteor.call('saveStatement', data, function(error, result){
+                // All has been validated, save it!
+                Meteor.call('saveStatement', data, function(error, result){
                     response = result;
-                });*/
+                });
             }
 
             // Write response
             this.response.writeHead(response.statusCode, {'Content-Type': 'application/json'});
             this.response.end(JSON.stringify(response));
-            
         },
         waitOn: function(){
             return Meteor.subscribe('stores');

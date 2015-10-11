@@ -1,7 +1,8 @@
 /**
  * Client side security
  */
-Stores.permit('insert').ifHasRole('admin').apply();
+Stores.permit('insert').apply();
+Secrets.permit('insert').apply();
 
 /**
  * Security settings for REST API

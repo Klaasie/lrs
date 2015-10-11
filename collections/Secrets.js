@@ -1,7 +1,7 @@
 Secrets = new Mongo.Collection("secrets");
 
 Secrets.attachSchema(new SimpleSchema({
-	userid: {
+	userId: {
 		type: String
 	},
 	secret: {

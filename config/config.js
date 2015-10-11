@@ -9,20 +9,40 @@ Avatar.setOptions({
 /**
  * Extending user object
  */
-AccountsTemplates.addField({
-    _id: 'firstname',
-    type: 'text',
-    placeholder: {
-        signUp: "Firstname"
+AccountsTemplates.addFields([
+    {
+        _id: 'firstname',
+        type: 'text',
+        placeholder: {
+            signUp: "Firstname"
+        },
+        required: true,
     },
-    required: true,
-});
+    {
+        _id: 'lastname',
+        type: 'text',
+        placeholder: {
+            signUp: "Lastname"
+        },
+        required: true
+    }
+]);
 
-AccountsTemplates.addField({
-    _id: 'lastname',
-    type: 'text',
-    placeholder: {
-        signUp: "Lastname"
-    },
-    required: true,
+/**
+ * Handling user signup
+ */
+
+AccountsTemplates.configure({
+    preSignUpHook: function(password, info){
+
+        // Generate secret
+        var secret = info.email + ':' + password;
+        var secretArray = CryptoJS.enc.Utf8.parse(secret);
+        var secretBase64 = CryptoJS.enc.Base64.stringify(secretArray);
+
+        Secrets.insert({
+            userId: "empty",
+            secret: secretBase64
+        });
+    }
 });

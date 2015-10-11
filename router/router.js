@@ -2,16 +2,18 @@
  * Router onbefore action
  */
 Router.onBeforeAction(function() {
-	// Not logging in, proceed to login page.
+	var self = this; // Saving this for incoming async call
+
+	// Not logged in, proceed to login page.
 	if (! Meteor.userId() ) {
 		Router.go('login');
-		this.next();
+	} else {
+		// Reset messages on default.
+		Session.set('messages', false);
+
+		self.next();
 	}
 
-	// Reset messages on default.
-	Session.set('messages', false);
-
-	this.next();
 },{
 	except: ['login', 'index', 'xAPI']
 });
@@ -36,14 +38,15 @@ Router.configure({
  * Rendering login page
  */
 Router.route('/login', {
+	name: 'login',
 	onBeforeAction: function(){
+		var self = this; // Saving this for incoming async call
 
 		if( Meteor.userId() ){
 			Router.go('/');
-			this.next();
+		}else{
+			self.next();
 		}
-
-		this.next();
 	},
 	action: function(){
 		this.layout('login')
@@ -58,9 +61,9 @@ Router.route('/', {
 	onBeforeAction: function(){
 		if(Meteor.userId()){
 			Router.go('/dashboard');
+		}else{
 			this.next();
 		}
-		this.next();
 	},
 	action: function(){
 		this.render('index');
