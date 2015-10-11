@@ -2,5 +2,19 @@
 	<div class="row">
 
 		{{> storeOverview }}
+
+		<div class="row">
+			<div class="col l6 m6 l12">
+					<ul class="collection">
+						{{#transition in="fadeInDown" out="fadeOutDown" }}
+							{{#each statements}}
+								<li class="collection-item">
+									{{ actor.name }} {{ verb.id }} {{ object.id }}
+								</li>
+							{{/each}}
+						{{/transition}}
+					</ul>
+			</div>
+		</div>
 	</div>
 </template>

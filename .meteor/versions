@@ -102,3 +102,4 @@ useraccounts:materialize@1.12.4
 utilities:avatar@0.9.2
 webapp@1.2.2
 webapp-hashing@1.0.5
+webtempest:animate@0.1.9
