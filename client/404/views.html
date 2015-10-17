@@ -1,0 +1,30 @@
+<template name="notFound">
+	<header>
+		<nav>
+			{{> sidemenu}}
+			<div class="nav-wrapper">
+				<a href="#" class="brand-logo center"><i class="large material-icons">polymer</i></a>
+				{{> topmenu}}
+			</div>
+		</nav>
+	</header>
+	<main>
+		<div id="container">
+			<div class="container">
+				<div class="row center">
+					<h1 class="text-long-shadow col s12">{{_ "main.oops"}}</h1>
+					<div class="row center">
+						<p class="center col s12">{{_ "main.pagedoesnotexist"}}</p>
+						<p class="center s12">
+							<button onclick="history.back()" class="btn waves-effect waves-light">{{_ "main.back"}}</button>
+							<a id="toDashboard" href="" class="btn waves-effect waves-light">{{_ "main.dashboard"}}</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+	<footer>
+		<!-- footer -->
+	</footer>
+</template>
