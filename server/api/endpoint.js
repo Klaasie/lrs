@@ -6,10 +6,12 @@ Router.map(function() {
             // set vars
             var response, data, user, statement;
 
+            // Set allowed headers
             this.response.setHeader( 'Access-Control-Allow-Origin', '*' );
             this.response.setHeader( 'Access-Control-Allow-Headers', 'Authorization, Origin, X-Requested-With, X-Experience-API-Version, Content-Type, Accept' );
             this.response.setHeader( 'Access-Control-Allow-Methods', 'POST, PUT, GET, DELETE, OPTIONS' );
 
+            // Let preflight know we're all set
             if ( this.request.method === "OPTIONS" ) {
                 this.response.end( 'Set OPTIONS.' );
             }
