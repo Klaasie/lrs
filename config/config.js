@@ -2,7 +2,7 @@
  * Set debug variable
  * @todo  make it do something
  */
-var debug = true;
+var debug = false;
 
 /**
  * Configuring avatar plugin
