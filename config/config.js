@@ -1,4 +1,10 @@
 /**
+ * Set debug variable
+ * @todo  make it do something
+ */
+var debug = true;
+
+/**
  * Configuring avatar plugin
  */
 Avatar.setOptions({
