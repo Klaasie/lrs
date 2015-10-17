@@ -6,6 +6,10 @@ Router.map(function() {
             // set vars
             var response, data, user, statement;
 
+            this.response.setHeader( 'Access-Control-Allow-Origin', '*' );
+            this.response.setHeader( 'Access-Control-Allow-Headers', 'Origin, X-Requested-With, X-Experience-API-Version, Content-Type, Accept' );
+            this.response.setHeader( 'Access-Control-Allow-Methods', 'POST, PUT, GET, DELETE, OPTIONS' );
+
             // Initialize response object
             response = {};
             response.statusCode = 200;
