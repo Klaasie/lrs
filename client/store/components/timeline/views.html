@@ -1,17 +1,17 @@
 <template name="timeline">
 	<div class="col l6 m12 s12">
-			<ul class="collection with-header">
-				<li class="collection-header"><h5>{{_ "store.statements"}}</h5></li>
-				{{#transition in="fadeInDown" out="fadeOutDown" }}
-					{{#each statements}}
-						<li class="collection-item">
-							{{ sentence }}
-							<div class="secondary-content grey-text">
-								{{livestamp timestamp }}
-							</div>
-						</li>
-					{{/each}}
-				{{/transition}}
-			</ul>
+		<ul class="collection with-header">
+			<li class="collection-header"><h5>{{_ "store.statements"}}</h5></li>
+			{{#transition in="fadeInDown" out="fadeOutDown" }}
+				{{#each statements}}
+					<li class="collection-item">
+						{{ sentence }}
+						<div class="secondary-content grey-text">
+							{{livestamp timestamp }}
+						</div>
+					</li>
+				{{/each}}
+			{{/transition}}
+		</ul>
 	</div>
 </template>
