@@ -19,9 +19,10 @@ Accounts.onCreateUser(function (options, user) {
 });
 
 /**
- * Enabling Cors
+ * Enabling Cors for xAPI
  */
 WebApp.connectHandlers.use(function(req, res, next) {
   res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Headers", "authorization, content-type, x-experience-api-version");
   return next();
 });
