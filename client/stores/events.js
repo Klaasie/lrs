@@ -5,6 +5,6 @@ Template.stores.events({
 	},
 	"click #goStore": function(event){
 		event.preventDefault();
-		Router.go('/stores/' + this._id);
+		Router.go('/store/' + this._id);
 	}
 });
