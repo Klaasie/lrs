@@ -1,4 +1,12 @@
 /**
+ * Loading indicator
+ */
+Router.configure({
+  loadingTemplate: 'loading',
+  notFoundTemplate: "notFound"
+});
+
+/**
  * Router onbefore action
  */
 Router.onBeforeAction(function() {
@@ -25,13 +33,6 @@ Router.onAfterAction(function() {
 	// Do something?
 },{
 	except: ['login', 'xAPI']
-});
-
-/**
- * Loading indicator
- */
-Router.configure({
-  loadingTemplate: 'loading'
 });
 
 /**
@@ -99,7 +100,7 @@ Router.route('/stores', {
 /**
  * Rendering store with id
  */
-Router.route('/stores/:_id', {
+Router.route('/store/:_id', {
 	action: function(){
 		var store =  Stores.findOne({_id: this.params._id});
 
