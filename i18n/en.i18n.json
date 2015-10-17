@@ -1,4 +1,10 @@
 {
+	"main": {
+		"oops": "Oops!",
+		"pagedoesnotexist": "This page doesn't exist",
+		"back": "Back",
+		"dashboard": "Dashboard"
+	},
 	"menu": {
 		"dashboard": "Dashboard",
 		"users": "Users",
@@ -16,6 +22,7 @@
 		"statementslastweek": "statements last week",
 		"users": "Users",
 		"activelastweek": "active last week",
-		"moreinfo": "More info"
+		"moreinfo": "More info",
+		"statementbreakdown": "Statement breakdown"
 	}
 }
