@@ -10,6 +10,10 @@ Router.map(function() {
             this.response.setHeader( 'Access-Control-Allow-Headers', 'Origin, X-Requested-With, X-Experience-API-Version, Content-Type, Accept' );
             this.response.setHeader( 'Access-Control-Allow-Methods', 'POST, PUT, GET, DELETE, OPTIONS' );
 
+            if ( this.request.method === "OPTIONS" ) {
+                this.response.end( 'Set OPTIONS.' );
+            }
+
             // Initialize response object
             response = {};
             response.statusCode = 200;
