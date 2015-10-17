@@ -6,6 +6,9 @@ Router.map(function() {
             // set vars
             var response, data, user, statement;
 
+            // Allow anyone to send stuff here
+            // this.response.setHeader( 'access-control-allow-origin', '*' );
+
             // Initialize response object
             response = {};
             response.statusCode = 200;

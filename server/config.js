@@ -17,3 +17,11 @@ Accounts.onCreateUser(function (options, user) {
         user.profile = options.profile;
     return user;
 });
+
+/**
+ * Enabling Cors
+ */
+WebApp.connectHandlers.use(function(req, res, next) {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  return next();
+});
