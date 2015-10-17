@@ -7,7 +7,7 @@ Router.map(function() {
             var response, data, user, statement;
 
             // Allow anyone to send stuff here
-            this.response.setHeader( 'access-control-allow-origin', '*' );
+            // this.response.setHeader( 'access-control-allow-origin', '*' );
 
             // Initialize response object
             response = {};
