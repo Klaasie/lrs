@@ -34,3 +34,5 @@ spacebars
 check
 utilities:avatar
 webtempest:animate
+momentjs:moment
+copleykj:livestamp
