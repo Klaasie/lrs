@@ -1,13 +1,10 @@
 Router.map(function() {
     this.route('xAPI', {
-        path: '/xAPI',
+        path: '/xAPI/statements',
         where: 'server',
         action: function() {
             // set vars
             var response, data, user, statement;
-
-            // Allow anyone to send stuff here
-            // this.response.setHeader( 'access-control-allow-origin', '*' );
 
             // Initialize response object
             response = {};
