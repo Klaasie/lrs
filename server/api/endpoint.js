@@ -7,7 +7,7 @@ Router.map(function() {
             var response, data, user, statement;
 
             this.response.setHeader( 'Access-Control-Allow-Origin', '*' );
-            this.response.setHeader( 'Access-Control-Allow-Headers', '*' );
+            this.response.setHeader( 'Access-Control-Allow-Headers', 'Authorization, Origin, X-Requested-With, X-Experience-API-Version, Content-Type, Accept' );
             this.response.setHeader( 'Access-Control-Allow-Methods', 'POST, PUT, GET, DELETE, OPTIONS' );
 
             if ( this.request.method === "OPTIONS" ) {
