@@ -36,5 +36,17 @@ Stores.attachSchema(new SimpleSchema({
 	},
 	'statements.$': {
 		type: String
+	},
+	createdAt: {
+		type: Date,
+		autoform: {
+			type: "hidden",
+			label: false
+		},
+		autoValue: function() {
+			if (this.isInsert) {
+				return new Date()
+			}
+		}
 	}
 }));
