@@ -1,9 +1,21 @@
-Meteor.publish('stores', function () {
-	return Stores.find({});
+Meteor.publish('stores', function (user) {
+	check(user, Object);
+
+	console.log(Roles.userIsInRole(user, 'owner'));
+
+	console.log(user._id);
+
+	return Stores.find({ users: user._id }, { sort: { createdAt: 1 } });
+});
+
+Meteor.publish('store', function (id) {
+	check(id, String);
+
+	return Stores.find({_id: id});
 });
 
 Meteor.publish("users", function () {
-    return Meteor.users.find({});
+	return Meteor.users.find({});
 });
 
 Meteor.publish("statements", function (storeId){
@@ -11,5 +23,9 @@ Meteor.publish("statements", function (storeId){
 
 	var store = Stores.findOne(storeId);
 
-	return Statements.find({},{_id: {$in: store.statements}});
+	if(store.statements !== undefined) {
+		return Statements.find({},{_id: {$in: store.statements}});
+	}
+
+	return this.ready();
 });
