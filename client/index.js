@@ -2,7 +2,9 @@
  * Startup scrips
  */
 Meteor.startup(function(){
+	// Set session variables
 	Session.setDefault('messages', false);
+	Session.setDefault('storeId', false);
 });
 
 /**
