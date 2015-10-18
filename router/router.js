@@ -83,7 +83,8 @@ Router.route('/dashboard', {
 		this.render('dashboard');	
 	},
 	waitOn: function(){
-		return [Meteor.subscribe('stores'), Meteor.subscribe('users')];
+		var user = Meteor.user();
+		return [Meteor.subscribe('stores', user), Meteor.subscribe('users')];
 	}
 });
 
