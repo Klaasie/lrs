@@ -19,6 +19,9 @@ Router.onBeforeAction(function() {
 		// Reset messages on default.
 		Session.set('messages', false);
 
+		// Reset storeId
+		Session.set('storeId', false);
+
 		self.next();
 	}
 
@@ -93,7 +96,8 @@ Router.route('/stores', {
 		this.render('stores');
 	},
 	waitOn: function(){
-		return Meteor.subscribe('stores');
+		var user = Meteor.user();
+		return Meteor.subscribe('stores', user);
 	}
 });
 
@@ -104,10 +108,12 @@ Router.route('/store/:_id', {
 	action: function(){
 		var store =  Stores.findOne({_id: this.params._id});
 
+		Session.set('storeId', this.params._id);
+
 		this.layout('application');
 		this.render('store', {data: store});
 	},
 	waitOn: function(){
-		return [Meteor.subscribe('stores'), Meteor.subscribe('users'), Meteor.subscribe('statements', this.params._id)];
+		return [Meteor.subscribe('store', this.params._id), Meteor.subscribe('users'), Meteor.subscribe('statements', this.params._id)];
 	}
 });
