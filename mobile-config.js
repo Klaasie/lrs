@@ -1,6 +1,6 @@
 App.info({
   id: 'frl.klaas.lrs',
-  name: 'LRS',
+  name: 'lrs',
   description: 'Klaas Poortinga LRS',
   author: 'Klaas Poortinga',
   email: 'lrs@klaas.frl',
