@@ -5,7 +5,7 @@ Meteor.methods({
 	saveStatement: function(data){
 		// Retrieve store
 		var store = Stores.find({
-			users: data.user._id
+			_id: data.user.profile.activeStore
 		}).fetch();
 		store = store[0];	
 
@@ -47,5 +47,10 @@ Meteor.methods({
 		data.response.message = "Statement added!";
 
 		return data.response;
+	},
+	'activateStore': function(storeId) {
+		var user = Meteor.user();
+
+		Meteor.users.update({_id: user._id}, { $set: { "profile.activeStore": storeId } });
 	}
 });
