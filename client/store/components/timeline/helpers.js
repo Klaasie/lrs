@@ -1,6 +1,10 @@
 Template.timeline.helpers({
 	statements: function(){
-		return Statements.find({}, { sort: { stored: -1 }, limit: 10 });
+		if(this.statements !== undefined){
+			return Statements.find({}, { _id: {$in: this.statements}, sort: { stored: -1 }, limit: 10 });	
+		}
+		
+		return [];
 	},
 	sentence: function(){
 		/**

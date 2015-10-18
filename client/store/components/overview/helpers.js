@@ -34,31 +34,40 @@ Template.storeOverview.helpers({
 	},
 	activityCount: function() {
 
-		// Retrieve statements
-		var statements = Statements.find({ _id: { $in: this.statements } }).fetch();
+		if(this.statements !== undefined){
+			// Retrieve statements
+			var statements = Statements.find({ _id: { $in: this.statements } }).fetch();
 
-		// Group them by object.id (the unique identifier)
-		var grouped = _.countBy(statements, function(statement){
-			return statement.object.id;
-		})
+			// Group them by object.id (the unique identifier)
+			var grouped = _.countBy(statements, function(statement){
+				return statement.object.id;
+			})
 
-		// Return count
-		return Object.keys(grouped).length;
+			// Return count
+			return Object.keys(grouped).length;
+		}
+
+		return 0;
 	},
 	activeActivities: function() {
-		// Get one week ago
-		var oneWeekAgo = new Date();
-		oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
 
-		// Retrieve statements
-		var statements = Statements.find({ _id: { $in: this.statements }, stored: {$gt: oneWeekAgo.toISOString()} }).fetch();
+		if(this.statements !== undefined){
+			// Get one week ago
+			var oneWeekAgo = new Date();
+			oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
 
-		// Group them by object.id (the unique identifier)
-		var grouped = _.countBy(statements, function(statement){
-			return statement.object.id;
-		})
+			// Retrieve statements
+			var statements = Statements.find({ _id: { $in: this.statements }, stored: {$gt: oneWeekAgo.toISOString()} }).fetch();
 
-		// Return count
-		return Object.keys(grouped).length;
+			// Group them by object.id (the unique identifier)
+			var grouped = _.countBy(statements, function(statement){
+				return statement.object.id;
+			})
+
+			// Return count
+			return Object.keys(grouped).length;
+		}
+
+		return 0;
 	}
 });
