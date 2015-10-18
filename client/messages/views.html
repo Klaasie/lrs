@@ -1,3 +1,7 @@
 <template name="messages">
-	<div class="card-panel {{ classes }}">{{ content }}</div>
+
+	{{#each messages}}
+		<div class="card-panel {{ type }}">{{ text }}</div>
+	{{/each}}
+	
 </template>

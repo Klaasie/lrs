@@ -22,5 +22,9 @@ Template.messages.helpers({
 	content: function(){
 		var message = Session.get('messages');
 		return message.content;
+	},
+	messages: function(){
+		console.log(messages);
+		return messages.get();
 	}
 });
