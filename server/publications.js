@@ -1,11 +1,11 @@
 Meteor.publish('stores', function (user) {
 	check(user, Object);
 
-	console.log(Roles.userIsInRole(user, 'owner'));
+	if(Roles.userIsInRole(user, 'admin')) {
+		return Stores.find({ }, { sort: { createdAt: -1 } });
+	}
 
-	console.log(user._id);
-
-	return Stores.find({ users: user._id }, { sort: { createdAt: 1 } });
+	return Stores.find({ users: user._id }, { sort: { createdAt: -1 } });
 });
 
 Meteor.publish('store', function (id) {
