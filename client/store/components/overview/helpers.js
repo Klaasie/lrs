@@ -12,7 +12,7 @@ Template.storeOverview.helpers({
 		oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
 		
 		// Query amount
-		var statementsCount = Statements.find({stored: {$gt: oneWeekAgo.toISOString()}}).count();
+		var statementsCount = Statements.find({ _id: { $in: this.statements } , stored: {$gt: oneWeekAgo.toISOString()} }).count();
 
 		// Return it
 		return statementsCount;
