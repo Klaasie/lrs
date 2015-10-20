@@ -16,12 +16,14 @@ Template.stores.events({
 		event.stopPropagation(); // Prevent going to the store
 
 		Meteor.call('activateStore', this._id);
+		Materialize.toast('Store activated!', 4000);
 	},
 	"click .storesActivate": function(event){
 		event.preventDefault();
 		event.stopPropagation(); // Prevent going to the store
 
 		Meteor.call('activateStore', this._id);
+		Materialize.toast('Store activated!', 4000);
 	},
 	"click .storesEdit": function(event){
 		event.preventDefault();
