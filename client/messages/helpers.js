@@ -3,7 +3,7 @@ Template.messages.helpers({
 		var classes;
 		var message = Session.get('messages');
 
-		switch (message.type){
+		switch (this.type){
 			case 'error':
 				classes = 'red darken-3';
 				break;
@@ -24,7 +24,6 @@ Template.messages.helpers({
 		return message.content;
 	},
 	messages: function(){
-		console.log(messages);
 		return messages.get();
 	}
 });

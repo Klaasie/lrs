@@ -1,7 +1,10 @@
 <template name="messages">
 
 	{{#each messages}}
-		<div class="card-panel {{ type }}">{{ text }}</div>
+		<div class="card-panel {{ classes }} white-text">
+			{{ text }}
+			<i id="closeMsg" class="material-icons right">close</i>
+		</div>
 	{{/each}}
 	
 </template>
