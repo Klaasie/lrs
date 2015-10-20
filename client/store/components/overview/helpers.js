@@ -1,6 +1,6 @@
 Template.storeOverview.helpers({
 	statementsCount: function(){
-		if(typeof this.statements != "undefined"){
+		if(typeof this.statements !== "undefined"){
 			return this.statements.length;
 		} else {
 			return 0;
@@ -12,7 +12,11 @@ Template.storeOverview.helpers({
 		oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
 		
 		// Query amount
-		var statementsCount = Statements.find({ _id: { $in: this.statements } , stored: {$gt: oneWeekAgo.toISOString()} }).count();
+		if(typeof this.statements !== "undefined"){
+			return Statements.find({ _id: { $in: this.statements } , stored: {$gt: oneWeekAgo.toISOString()} }).count();
+		}else{
+			return 0;
+		}
 
 		// Return it
 		return statementsCount;
@@ -28,13 +32,16 @@ Template.storeOverview.helpers({
 		// Query amount
 		var statementIds = Statements.find({stored: {$gt: oneWeekAgo.toISOString()}}).map(function(item){ return item._id; });
 
-		var userCount = Meteor.users.find({statements: {$in: statementIds}}).count();
 
-		return userCount;
+		if(statementIds.length > 0){
+			return Meteor.users.find({statements: {$in: statementIds}}).count();
+		}else{
+			return 0;
+		}
 	},
 	activityCount: function() {
 
-		if(this.statements !== undefined){
+		if(typeof this.statements !== "undefined"){
 			// Retrieve statements
 			var statements = Statements.find({ _id: { $in: this.statements } }).fetch();
 
@@ -51,21 +58,23 @@ Template.storeOverview.helpers({
 	},
 	activeActivities: function() {
 
-		if(this.statements !== undefined){
+		if(typeof this.statements !== "undefined"){
 			// Get one week ago
 			var oneWeekAgo = new Date();
 			oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
 
 			// Retrieve statements
-			var statements = Statements.find({ _id: { $in: this.statements }, stored: {$gt: oneWeekAgo.toISOString()} }).fetch();
+			if(typeof this.statements !== undefined){
+				var statements = Statements.find({ _id: { $in: this.statements }, stored: {$gt: oneWeekAgo.toISOString()} }).fetch();
 
-			// Group them by object.id (the unique identifier)
-			var grouped = _.countBy(statements, function(statement){
-				return statement.object.id;
-			})
+				// Group them by object.id (the unique identifier)
+				var grouped = _.countBy(statements, function(statement){
+					return statement.object.id;
+				})
 
-			// Return count
-			return Object.keys(grouped).length;
+				// Return count
+				return Object.keys(grouped).length;
+			}
 		}
 
 		return 0;
