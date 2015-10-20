@@ -15,7 +15,10 @@
 		"intro": "Welcome!"
 	},
 	"stores": {
-		"addStore": "Add Learning Record Store"
+		"addStore": "Add Learning Record Store",
+		"activate": "Activate",
+		"edit": "Edit",
+		"remove": "Remove"
 	},
 	"store": {
 		"statements": "Statements",
