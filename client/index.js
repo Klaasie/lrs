@@ -2,15 +2,16 @@
  * Startup scrips
  */
 Meteor.startup(function(){
-	// Set session variables
+	/**
+	 * Setting session variables
+	 */
 	Session.setDefault('messages', false);
 	Session.setDefault('storeId', false);
 
+	/**
+	 * Setting variables
+	 */
 	messages = new Messages();
-	messages.set('Test content', 'success');
-	messages.set('Test content 2', 'error');
-
-	console.log(messages);
 });
 
 /**
