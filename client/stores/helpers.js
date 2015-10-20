@@ -1,6 +1,6 @@
 Template.stores.helpers({
 	stores: function() {
-		return Stores.find();
+		return Stores.find({}, { sort: { createdAt: 1 } });
 	},
 	statusClass: function() {
 		var user = Meteor.user();

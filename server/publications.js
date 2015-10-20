@@ -1,10 +1,10 @@
 Meteor.publish('stores', function() {
 console.log(this);
 	if(Roles.userIsInRole(this.userId, 'admin')) {
-		return Stores.find({ }, { sort: { createdAt: -1 } });
+		return Stores.find({});
 	}
 
-	return Stores.find({ users: this.userId }, { sort: { createdAt: -1 } });
+	return Stores.find({ users: this.userId });
 });
 
 Meteor.publish('store', function (id) {
