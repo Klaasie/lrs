@@ -1,5 +1,5 @@
 Meteor.publish('stores', function() {
-console.log(this);
+
 	if(Roles.userIsInRole(this.userId, 'admin')) {
 		return Stores.find({});
 	}
