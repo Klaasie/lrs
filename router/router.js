@@ -63,7 +63,7 @@ Router.route('/login', {
 Router.route('/', {
 	name: 'index',
 	onBeforeAction: function(){
-		if(Meteor.userId()){
+		if(Meteor.userId() || Meteor.isCordova){
 			Router.go('/dashboard');
 		}else{
 			this.next();
