@@ -34,7 +34,7 @@ header, main, footer {
 }
 
 .center.loading {
-	margin-top: 20%;
+	margin-top: 35%;
 }
 
 nav .nav-wrapper i {
@@ -81,4 +81,9 @@ nav ul {
 
 #closeMsg {
 	cursor: pointer;
+}
+
+/** Materialize overrides */
+.collection {
+	overflow: visible;
 }

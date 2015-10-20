@@ -9,7 +9,15 @@
 						<p>
 							{{ description }}
 						</p>
-						<a id="goStore" data-id="{{ _id }}" href="#" class="secondary-content"><i class="material-icons">settings</i></a>
+						<a data-id="{{ _id }}" href="#" class="editStore secondary-content" data-activates="dropdown_{{ _id }}">
+							<i class="material-icons">settings</i>
+						</a>
+						<ul id='dropdown_{{ _id }}' class='dropdown-content'>
+							<li><a class="storesActivate waves-effect waves-light" href="#!">{{_ "stores.activate"}}</a></li>
+							<li><a class="storesEdit waves-effect waves-light" href="#!">{{_ "stores.edit"}}</a></li>
+							<li class="divider"></li>
+							<li><a class="storesRemove red-text waves-effect waves-light" href="#!">{{_ "stores.remove"}}</a></li>
+						</ul>
 					</li>
 				{{/each}}
 			</ul>
