@@ -40,5 +40,10 @@ Template.stores.events({
 });
 
 Template.stores.rendered = function(){
-	$('.editStore').dropdown();
+	$('.editStore').dropdown({
+		constrainwidth: false,
+		beloworigin: true,
+		alignment: "right",
+		closeOnClick: true
+	});
 }
