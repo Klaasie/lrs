@@ -10,7 +10,9 @@ AutoForm.addHooks('insertStoreForm', {
 		});
 
 		// Give feedback
-		Session.set('messages', {"content": "Learning Record Store added.", "type": "success"});
+		Materialize.toast('Learning Record Store added!', 4000);
+
+		// Close modal
 		$('#addStore').closeModal();
 	}
 });
