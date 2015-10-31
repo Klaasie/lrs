@@ -26,7 +26,7 @@ Router.onBeforeAction(function() {
 	}
 
 },{
-	except: ['login', 'index', 'xAPI']
+	except: ['login', 'index', 'xAPI', 'statements', 'stateAPI']
 });
 
 /**
@@ -35,7 +35,7 @@ Router.onBeforeAction(function() {
 Router.onAfterAction(function() {
 	// Do something?
 },{
-	except: ['login', 'xAPI']
+	except: ['login', 'xAPI', 'statements', 'stateAPI']
 });
 
 /**

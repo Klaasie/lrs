@@ -18,9 +18,16 @@ Meteor.methods({
 
 		// I think we have all the necessary information
 
+		/**
+		 * Removing context property for now due to issues with the bookmark
+		 * @todo  Fix this, apparently mongo doens't like . or $ in object keys as they are reserved.
+		 */
+		delete data.statement.context;
+
 		// Statements should live on their own, therefore
 		// no information is added about LRS or user
-		var statementId = Statements.insert(data.statement);
+		var statementId = Statements.insert(data.statement, function(error, _id){
+		});
 
 		// Instead we save statementid connection to the store
 		Stores.update(store._id, {
