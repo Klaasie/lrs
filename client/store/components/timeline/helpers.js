@@ -8,9 +8,8 @@ Template.timeline.helpers({
 		return [];
 	},
 	sentence: function(){
-		/**
-		 * @todo  Ideally we'll do this from the statement class.. and have some checks
-		 */
-		return this.actor.name + ' ' + this.verb.display["en-US"] + ' ' + this.object.definition.description["en-US"];
+		var statement = new Statement(this);
+
+		return statement.getPrettyFormat();
 	}
 });

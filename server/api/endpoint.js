@@ -172,7 +172,8 @@ Router.route('xAPI/activities/state', {
             this.response.end( 'Set OPTIONS.' );
         }
 
-        console.log('stateAPI');
-        console.log(this.request.method);
+        if( this.request.method == "GET"){
+            console.log(this.request.query);
+        }
     }
 });

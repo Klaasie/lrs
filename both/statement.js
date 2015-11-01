@@ -323,4 +323,37 @@ Statement = function(statement){
 		return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
 	}
 
+	/**
+	 * Returns a pretty version of the statement if possible
+	 * @return {String} Sentence of the statement
+	 */
+	this.getPrettyFormat = function(){
+		var actor, verb, object, sentence;
+
+		if(typeof this.statement.actor.name !== "undefined"){
+			actor = this.statement.actor.name;
+		}else{
+			actor = this.statement.actor.mbox;
+		}
+
+		// Lets assume for now if display is set that there is a en-US version
+		if(typeof this.statement.verb.display !== "undefined"){
+			verb = this.statement.verb.display["en-US"];
+		}else{
+			verb = this.statement.verb.id;
+		}
+
+		if(typeof this.statement.object.definition.description !== "undefined"){
+			object = this.statement.object.definition.description["en-US"];
+		}else if(typeof this.statement.object.definition.name !== "undefined"){
+			object = this.statement.object.definition.name["en-US"];
+		}else{
+			object = this.statement.object.id;
+		}
+
+		sentence = actor + ' ' + verb + ' ' + object;
+
+		return sentence;
+	}
+
 }
