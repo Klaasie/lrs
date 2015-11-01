@@ -98,6 +98,57 @@ Router.route('xAPI/statements', {
             });
         }
 
+        if(this.request.method == "GET") {
+            var StatementResult;
+
+            /**
+             * this is the authorization header, we probably want something done here..
+             * @todo Check if authorization and mbox are equal. if not check rights to see other statements.
+             */
+            //console.log(this.request.headers.authorization);
+
+            // Getting the agent from the query
+            var agent = this.request.query.agent;
+
+            // parsing to object
+            agent = JSON.parse(agent);
+
+            /**
+             * Retrieving statements
+             * @type {Object}
+             * @todo Order based on stored
+             * @todo Include full query rather than 1 little part
+             */
+            var statements = Statements.find({ "actor.mbox": agent.mbox }).fetch();
+            
+            // If more than one statement is 
+            if(statements.length > 1){
+                // StatementResult is an array
+                StatementResult = [];
+
+                // Loop through it and push to array
+                _.each(statements, function(statement){
+                    StatementResult.push(statement);
+                });
+            }else if(statements.length == 1){
+                // Just one result
+                StatementResult = statements;
+            }else{
+                // No results
+                StatementResult = [];
+            }
+
+            // set response object
+            response.statusCode = 200;
+            response.statements = StatementResult;
+
+            // Return response
+            this.response.writeHead(response.statusCode, {'Content-Type': 'application/json'});
+            this.response.end(JSON.stringify(response));
+
+            return false;
+        }
+
         // Write response
         this.response.writeHead(response.statusCode, {'Content-Type': 'application/json'});
         this.response.end(JSON.stringify(response));
@@ -116,6 +167,12 @@ Router.route('xAPI/activities/state', {
         this.response.setHeader( 'Access-Control-Allow-Headers', 'Authorization, Origin, X-Requested-With, X-Experience-API-Version, Content-Type, Accept' );
         this.response.setHeader( 'Access-Control-Allow-Methods', 'POST, PUT, GET, DELETE, OPTIONS' );
 
-        //console.log(this);
+        // Let preflight know we're all set
+        if ( this.request.method === "OPTIONS" ) {
+            this.response.end( 'Set OPTIONS.' );
+        }
+
+        console.log('stateAPI');
+        console.log(this.request.method);
     }
 });

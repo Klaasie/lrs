@@ -55,6 +55,9 @@ Meteor.methods({
 
 		return data.response;
 	},
+	'getStatements': function(){
+
+	},
 	'activateStore': function(storeId) {
 		var user = Meteor.user();
 
