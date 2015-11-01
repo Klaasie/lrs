@@ -343,10 +343,12 @@ Statement = function(statement){
 			verb = this.statement.verb.id;
 		}
 
-		if(typeof this.statement.object.definition.description !== "undefined"){
-			object = this.statement.object.definition.description["en-US"];
-		}else if(typeof this.statement.object.definition.name !== "undefined"){
-			object = this.statement.object.definition.name["en-US"];
+		if(typeof this.statement.object.definition !== "undefined"){
+			if(typeof this.statement.object.definition.description !== "undefined"){
+				object = this.statement.object.definition.description["en-US"];
+			}else if(typeof this.statement.object.definition.name !== "undefined"){
+				object = this.statement.object.definition.name["en-US"];
+			}
 		}else{
 			object = this.statement.object.id;
 		}
