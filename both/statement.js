@@ -75,6 +75,11 @@ Statement = function(statement){
 			return false;
 		}
 
+		// Validat context
+		if( !this.validateContext() ){
+			return false;
+		}
+
 		// Validate time
 		if( !this.validateTime() ){
 			return false;
@@ -222,7 +227,7 @@ Statement = function(statement){
 	}
 
 	/**
-	 * Validat account type object
+	 * Validate account type object
 	 * @param  {Object} account Account info
 	 * @return {Boolean}         true / false
 	 */
@@ -244,6 +249,10 @@ Statement = function(statement){
 		return true;
 	}
 
+	/**
+	 * Validate verb object
+	 * @return {Boolean} true if validation checks out
+	 */
 	this.validateVerb = function() {
 		// Check if verb exists
 		if( !("verb" in this.statement) ){
@@ -262,6 +271,10 @@ Statement = function(statement){
 		return true;
 	}
 
+	/**
+	 * Validate object 
+	 * @return {Boolean} True if it checks out
+	 */
 	this.validateObject = function() {
 		// Check if object exists
 		if( !("object" in this.statement) ){
@@ -277,6 +290,10 @@ Statement = function(statement){
 			return false;
 		}
 
+		return true;
+	}
+
+	this.validateContext = function(){
 		return true;
 	}
 

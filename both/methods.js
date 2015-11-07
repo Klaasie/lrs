@@ -22,7 +22,7 @@ Meteor.methods({
 		 * Removing context property for now due to issues with the bookmark
 		 * @todo  Fix this, apparently mongo doens't like . or $ in object keys as they are reserved.
 		 */
-		delete data.statement.context;
+		// delete data.statement.context;
 
 		// Statements should live on their own, therefore
 		// no information is added about LRS or user
