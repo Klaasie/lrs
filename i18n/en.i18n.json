@@ -18,7 +18,8 @@
 		"addStore": "Add Learning Record Store",
 		"activate": "Activate",
 		"edit": "Edit",
-		"remove": "Remove"
+		"remove": "Remove",
+		"updateStore": "Update Learning Record Store"
 	},
 	"store": {
 		"statements": "Statements",
