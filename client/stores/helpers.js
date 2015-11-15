@@ -19,5 +19,8 @@ Template.stores.helpers({
 		}
 
 		return "Inactive";
+	},
+	editDoc: function(){
+		return Session.get('stores.doc');
 	}
 });

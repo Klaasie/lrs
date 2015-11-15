@@ -29,7 +29,9 @@ Template.stores.events({
 		event.preventDefault();
 		event.stopPropagation(); // Prevent going to the store
 
-		//Meteor.call('activateStore', this._id);
+		Session.set('stores.doc', this);
+
+		$('#updateStore').openModal();
 	},
 	"click .storesRemove": function(event){
 		event.preventDefault();

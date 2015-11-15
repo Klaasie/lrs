@@ -16,3 +16,13 @@ AutoForm.addHooks('insertStoreForm', {
 		$('#addStore').closeModal();
 	}
 });
+
+AutoForm.addHooks('updateStoreForm', {
+	onSuccess: function(formType, result) {
+		// Give feedback
+		Materialize.toast('Learning Record Store updated!', 4000);
+
+		// Close modal
+		$('#updateStore').closeModal();
+	}
+});
