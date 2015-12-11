@@ -27,6 +27,29 @@ Template.storeOverview.helpers({
         // Return it
         return statementsCount;
     },
+    weeklyStatementCount: function(){
+        var storeId = FlowRouter.getParam('storeId');
+        var store = Stores.findOne(storeId);
+
+        var statements = Statements.find({ _id: { $in: store.statements } }).fetch();
+
+        var groupedStatements = _.groupBy(_.pluck(statements, 'stored'), function(stored){
+            var date = new Date(stored);
+
+            return date.getWeekNumber();
+        });
+
+
+        var values = []
+        _.each(groupedStatements, function(value, key){
+            if(!isNaN(key))
+                values.push(value.length);
+        });
+
+        console.log(values);
+
+        return values;
+    },
     usersCount: function() {
         var storeId = FlowRouter.getParam('storeId');
         var store = Stores.findOne(storeId);
@@ -91,5 +114,13 @@ Template.storeOverview.helpers({
         }
 
         return 0;
+    },
+    lineOptions: function() {
+        return {
+            width: "180px",
+            height: "180px",
+            lineColor: "#FFF",
+            fillColor: false
+        }
     }
 });
