@@ -1,120 +1,53 @@
 /**
- * Loading indicator
+ * Router for index page
  */
-Router.configure({
-  loadingTemplate: 'loading',
-  notFoundTemplate: "notFound"
+FlowRouter.route('/', {
+    action: function() {
+        BlazeLayout.render("index");
+    }
 });
 
 /**
- * Router onbefore action
+ * Router for login page
  */
-Router.onBeforeAction(function() {
-	var self = this; // Saving this for incoming async call
-
-	// Not logged in, proceed to login page.
-	if (! Meteor.userId() ) {
-		Router.go('login');
-	} else {
-		// Reset messages on default.
-		Session.set('messages', false);
-
-		// Reset storeId
-		Session.set('storeId', false);
-
-		self.next();
-	}
-
-},{
-	except: ['login', 'index', 'xAPI', 'statements', 'stateAPI']
+FlowRouter.route('/login', {
+    action: function() {
+        BlazeLayout.render("login");
+    }
 });
 
 /**
- * Router onafter action
+ * Router for dashboard page
  */
-Router.onAfterAction(function() {
-	// Do something?
-},{
-	except: ['login', 'xAPI', 'statements', 'stateAPI']
+FlowRouter.route('/dashboard', {
+    action: function() {
+        BlazeLayout.render("application", {content: "dashboard"});
+    }
 });
 
 /**
- * Rendering login page
+ * Router for stores page
  */
-Router.route('/login', {
-	name: 'login',
-	onBeforeAction: function(){
-		var self = this; // Saving this for incoming async call
-
-		if( Meteor.userId() ){
-			Router.go('/');
-		}else{
-			self.next();
-		}
-	},
-	action: function(){
-		this.layout('login')
-	}
+FlowRouter.route('/stores', {
+    action: function() {
+        BlazeLayout.render("application", {content: "stores"});
+    }
 });
 
 /**
- * Rendering homepage
+ * Router for store page
  */
-Router.route('/', {
-	name: 'index',
-	onBeforeAction: function(){
-		if(Meteor.userId() || Meteor.isCordova){
-			Router.go('/dashboard');
-		}else{
-			this.next();
-		}
-	},
-	action: function(){
-		this.render('index');
-	}
+FlowRouter.route('/store/:storeId', {
+    action: function() {
+        BlazeLayout.render("application", {content: "store"});
+    }
 });
 
 /**
- * Rendering dashboard
+ * Router for 404 page
  */
-Router.route('/dashboard', {
-	action: function(){
-		this.layout('application')
-		this.render('dashboard');	
-	},
-	waitOn: function(){
-		var user = Meteor.user();
-		return [Meteor.subscribe('stores', user), Meteor.subscribe('users')];
-	}
-});
-
-/**
- * Rendering stores
- */
-Router.route('/stores', {
-	action: function(){
-		this.layout('application');
-		this.render('stores');
-	},
-	waitOn: function(){
-		var user = Meteor.user();
-		return Meteor.subscribe('stores', user);
-	}
-});
-
-/**
- * Rendering store with id
- */
-Router.route('/store/:_id', {
-	action: function(){
-		var store =  Stores.findOne({_id: this.params._id});
-
-		Session.set('storeId', this.params._id);
-
-		this.layout('application');
-		this.render('store', {data: store});
-	},
-	waitOn: function(){
-		return [Meteor.subscribe('store', this.params._id), Meteor.subscribe('users'), Meteor.subscribe('statements', this.params._id)];
-	}
-});
+FlowRouter.notFound = {
+    action: function() {
+        BlazeLayout.render("application", {content: "notFound"});
+    }
+};

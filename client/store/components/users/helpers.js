@@ -1,4 +1,11 @@
 Template.storeUsers.helpers({
+	users: function (){
+		var storeId = FlowRouter.getParam('storeId');
+		var store = Stores.findOne(storeId);
+
+
+		return Meteor.users.find({ _id: { $in: store.users } });
+	},
 	name: function(){
 
 		var user = Meteor.users.findOne(this.valueOf());
@@ -9,8 +16,8 @@ Template.storeUsers.helpers({
 		// Retrieve the user
 		var user = Meteor.users.findOne(this.valueOf());
 
-		// Retrieve the store
-		var store = Stores.findOne(Session.get('storeId'));
+		var storeId = FlowRouter.getParam('storeId');
+		var store = Stores.findOne(storeId);
 
 		// Find how many statement ids are in both arrays
 		// This is how we determine how many statements from the user belong to the store

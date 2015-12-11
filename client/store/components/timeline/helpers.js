@@ -1,8 +1,10 @@
 Template.timeline.helpers({
 	statements: function(){
+		var storeId = FlowRouter.getParam('storeId');
+		var store = Stores.findOne(storeId);
 
-		if(this.statements !== undefined){
-			return Statements.find({ _id: { $in: this.statements } }, { sort: { stored: -1 }, limit: 10 });	
+		if(store.statements !== undefined){
+			return Statements.find({ _id: { $in: store.statements } }, { sort: { stored: -1 }, limit: 10 });	
 		}
 		
 		return [];

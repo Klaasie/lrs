@@ -5,12 +5,12 @@ Template.sidemenu.events({
 	"click #dashboard": function(event){
 		event.preventDefault();
 		$(".toggle-menu").sideNav('hide');
-		Router.go('/dashboard');
+		FlowRouter.go('/dashboard');
 	},
 	"click #stores": function(event){
 		event.preventDefault();
 		$(".toggle-menu").sideNav('hide');
-		Router.go('/stores');
+		FlowRouter.go('/stores');
 	},
 	"click #logout": function(event){
 		event.preventDefault();

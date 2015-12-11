@@ -5,7 +5,7 @@ Template.stores.events({
 	},
 	"click .collection-item": function(event){
 		event.preventDefault();
-		Router.go('/store/' + this._id);
+		FlowRouter.go('/store/' + this._id);
 	},
 	"click .editStore": function(event){
 		event.preventDefault();
@@ -42,6 +42,15 @@ Template.stores.events({
 });
 
 Template.stores.rendered = function(){
+	var self = this;
+
+	// Subscriptions
+	self.autorun(function(){
+		var user = Meteor.user();
+      	return self.subscribe('stores', user);
+	});
+
+	// Enable dropdown
 	$('.editStore').dropdown({
 		constrainwidth: false,
 		beloworigin: true,
