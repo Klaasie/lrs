@@ -1,7 +1,28 @@
 <template name="dashboard">
 	<div class="row">
 		<div class="col s12 m12 l12">
-			
+			<div id="lrs" class="col s12 m12 l6">
+                <ul id="projects-collection" class="collection">
+                    <li class="collection-item avatar">
+                        <i class="material-icons circle red">store</i>
+                        <span class="collection-header">{{_ "dashboard.lrs"}}</span>
+                    </li>
+                    {{#each stores}}
+	                    <li class="collection-item">
+	                        <div class="row">
+	                            <div class="col s9">
+	                                <p class="collections-title">{{ name }}</p>
+	                                <p class="collections-content">{{_ "dashboard.amountUsers"}}: {{ users.length }}</p>
+	                                <p class="collections-content">{{_ "dashboard.amountStatements"}}: {{ statements.length }}</p>
+	                            </div>
+	                            <div class="col s3">
+	                                <span class="task-cat cyan">Development</span>
+	                            </div>
+	                        </div>
+	                    </li>
+	                {{/each}}
+                </ul>
+            </div>
 		</div>
 	</div>
 </template>
