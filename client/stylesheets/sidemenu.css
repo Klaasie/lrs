@@ -1,9 +1,9 @@
 nav ul.side-nav li.user{
-	padding: 20px 20px 0;
+    padding: 20px 20px 0;
 }
 
 nav ul.side-nav li.user .user-avatar {
-	width: 80px;
-	height: 80px;
-	margin: 0px auto;
+    width: 80px;
+    height: 80px;
+    margin: 0px auto;
 }

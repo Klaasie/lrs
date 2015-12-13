@@ -1,35 +1,35 @@
 {
-	"main": {
-		"oops": "Oops!",
-		"pagedoesnotexist": "This page doesn't exist",
-		"back": "Back",
-		"dashboard": "Dashboard"
-	},
-	"menu": {
-		"dashboard": "Dashboard",
-		"users": "Users",
-		"lrs": "Learning Record Stores",
-		"logout": "Logout"
-	},
-	"dashboard": {
-		"intro": "Welcome!"
-	},
-	"stores": {
-		"addStore": "Add Learning Record Store",
-		"activate": "Activate",
-		"edit": "Edit",
-		"remove": "Remove",
-		"updateStore": "Update Learning Record Store"
-	},
-	"store": {
-		"statements": "Statements",
-		"statementslastweek": "statements last week",
-		"users": "Users",
-		"activelastweek": "active last week",
-		"activities": "Activities",
-		"activitieslastweek": "activities last week",
-		"moreinfo": "More info",
-		"statementbreakdown": "Statement breakdown",
-		"uploadUsers": "Upload users"
-	}
+    "main": {
+        "oops": "Oops!",
+        "pagedoesnotexist": "This page doesn't exist",
+        "back": "Back",
+        "dashboard": "Dashboard"
+    },
+    "menu": {
+        "dashboard": "Dashboard",
+        "users": "Users",
+        "lrs": "Learning Record Stores",
+        "logout": "Logout"
+    },
+    "dashboard": {
+        "intro": "Welcome!"
+    },
+    "stores": {
+        "addStore": "Add Learning Record Store",
+        "activate": "Activate",
+        "edit": "Edit",
+        "remove": "Remove",
+        "updateStore": "Update Learning Record Store"
+    },
+    "store": {
+        "statements": "Statements",
+        "statementslastweek": "statements last week",
+        "users": "Users",
+        "activelastweek": "active last week",
+        "activities": "Activities",
+        "activitieslastweek": "activities last week",
+        "moreinfo": "More info",
+        "statementbreakdown": "Statement breakdown",
+        "uploadUsers": "Upload users"
+    }
 }

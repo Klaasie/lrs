@@ -35,7 +35,7 @@ FlowRouter.route('/stores', {
 });
 
 /**
- * Router for store page
+ * Router for store/:id page
  */
 FlowRouter.route('/store/:storeId', {
     action: function() {

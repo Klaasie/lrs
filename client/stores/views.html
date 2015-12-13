@@ -1,62 +1,62 @@
 <template name="stores">
-	<div class="row">
-		<div class="col s12 m12 l12">
-			<ul class="collection">
-				{{#each stores}}
-					<li class="collection-item avatar">
-						<i class="material-icons circle red">store</i>
-						<span class="title">{{ name }}</span> <div id="activate" class="chip {{ statusClass }}">{{ status }}</div>
-						<p>
-							{{ description }}
-						</p>
-						<a data-id="{{ _id }}" href="#" class="editStore secondary-content" data-activates="dropdown_{{ _id }}">
-							<i class="material-icons">settings</i>
-						</a>
-						<ul id='dropdown_{{ _id }}' class='dropdown-content'>
-							<li><a class="storesActivate waves-effect waves-light" href="#!">{{_ "stores.activate"}}</a></li>
-							<li><a class="storesEdit waves-effect waves-light modal-trigger" href="#updateStore">{{_ "stores.edit"}}</a></li>
-							<li class="divider"></li>
-							<li><a class="storesRemove red-text waves-effect waves-light" href="#!">{{_ "stores.remove"}}</a></li>
-						</ul>
-					</li>
-				{{/each}}
-			</ul>
-		</div>
-	</div>
+    <div class="row">
+        <div class="col s12 m12 l12">
+            <ul class="collection">
+                {{#each stores}}
+                    <li class="collection-item avatar">
+                        <i class="material-icons circle red">store</i>
+                        <span class="title">{{ name }}</span> <div id="activate" class="chip {{ statusClass }}">{{ status }}</div>
+                        <p>
+                            {{ description }}
+                        </p>
+                        <a data-id="{{ _id }}" href="#" class="editStore secondary-content" data-activates="dropdown_{{ _id }}">
+                            <i class="material-icons">settings</i>
+                        </a>
+                        <ul id='dropdown_{{ _id }}' class='dropdown-content'>
+                            <li><a class="storesActivate waves-effect waves-light" href="#!">{{_ "stores.activate"}}</a></li>
+                            <li><a class="storesEdit waves-effect waves-light modal-trigger" href="#updateStore">{{_ "stores.edit"}}</a></li>
+                            <li class="divider"></li>
+                            <li><a class="storesRemove red-text waves-effect waves-light" href="#!">{{_ "stores.remove"}}</a></li>
+                        </ul>
+                    </li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
 
-	<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
-		<a id="openModal" href="#addStore" class="btn-floating btn-large red modal-trigger">
-			<i class="large material-icons">add</i>
-		</a>
-	</div>
+    <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+        <a id="openModal" href="#addStore" class="btn-floating btn-large red modal-trigger">
+            <i class="large material-icons">add</i>
+        </a>
+    </div>
 
-	<!-- Modal Structure -->
-	<div id="addStore" class="modal">
-		{{#autoForm collection="Stores" id="insertStoreForm" type="insert"}}
-			<div class="modal-content">
-				<h4>{{_ "stores.addStore" }}</h4>
-				{{> afQuickField name='name'}}
-				{{> afQuickField name='description'}}
-				{{> afQuickField name='userId'}}
-			</div>
-			<div class="modal-footer">
-				<button type="submit" class="btn btn-primary">Insert</button>
-				<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
-			</div>
-		{{/autoForm}}
-	</div>
+    <!-- Modal Structure -->
+    <div id="addStore" class="modal">
+        {{#autoForm collection="Stores" id="insertStoreForm" type="insert"}}
+            <div class="modal-content">
+                <h4>{{_ "stores.addStore" }}</h4>
+                {{> afQuickField name='name'}}
+                {{> afQuickField name='description'}}
+                {{> afQuickField name='userId'}}
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Insert</button>
+                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+            </div>
+        {{/autoForm}}
+    </div>
 
-	<div id="updateStore" class="modal">
-		{{#autoForm collection="Stores" doc=editDoc id="updateStoreForm" type="update"}}
-			<div class="modal-content">
-				<h4>{{_ "stores.updateStore" }}</h4>
-				{{> afQuickField name='name'}}
-				{{> afQuickField name='description'}}
-			</div>
-			<div class="modal-footer">
-				<button type="submit" class="btn btn-primary">Update</button>
-				<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
-			</div>
-		{{/autoForm}}
-	</div>
+    <div id="updateStore" class="modal">
+        {{#autoForm collection="Stores" doc=editDoc id="updateStoreForm" type="update"}}
+            <div class="modal-content">
+                <h4>{{_ "stores.updateStore" }}</h4>
+                {{> afQuickField name='name'}}
+                {{> afQuickField name='description'}}
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Update</button>
+                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+            </div>
+        {{/autoForm}}
+    </div>
 </template>

@@ -1,13 +1,13 @@
 Template.messages.events({
-	"click #closeMsg": function(event){
-		event.preventDefault();
+    "click #closeMsg": function(event){
+        event.preventDefault();
 
-		$(event.currentTarget).parent().css('opacity', 0);
+        $(event.currentTarget).parent().css('opacity', 0);
 
-		$(event.currentTarget).parent().one("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){
-			$(this).remove();
-		});
+        $(event.currentTarget).parent().one("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){
+            $(this).remove();
+        });
 
-		messages.remove(this.id);
-	}
+        messages.remove(this.id);
+    }
 });

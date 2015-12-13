@@ -1,20 +1,20 @@
 Template.dashboard.events({
-	// Events
+    // Events
 });
 
 Template.dashboard.rendered = function() {
-	var self = this;
+    var self = this;
 
-	// Check if  there are stores
-	var StoresCount = Stores.find({}).count();
+    // Check if  there are stores
+    var StoresCount = Stores.find({}).count();
 
-	if( StoresCount == 0 ){
-		Session.set('messages', {"content": "No Learning Record Stores found.", "type": "error"});
-	}
+    if( StoresCount == 0 ){
+        Session.set('messages', {"content": "No Learning Record Stores found.", "type": "error"});
+    }
 
-	// Subscriptions
-	self.autorun(function(){
-		var user = Meteor.user();
-      	return self.subscribe('stores', user);
-	});
+    // Subscriptions
+    self.autorun(function(){
+        var user = Meteor.user();
+        return self.subscribe('stores', user);
+    });
 }

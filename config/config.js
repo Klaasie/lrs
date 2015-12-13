@@ -8,8 +8,8 @@ var debug = false;
  * Configuring avatar plugin
  */
 Avatar.setOptions({
-	fallbackType: "default image",
-	gravatarDefault: "identicon"
+    fallbackType: "default image",
+    gravatarDefault: "identicon"
 });
 
 /**

@@ -1,7 +1,7 @@
 Template.notFound.events({
-	"click #toDashboard": function(event){
-		event.preventDefault();
+    "click #toDashboard": function(event){
+        event.preventDefault();
 
-		FlowRouter.go('/dashboard');
-	}
+        FlowRouter.go('/dashboard');
+    }
 });

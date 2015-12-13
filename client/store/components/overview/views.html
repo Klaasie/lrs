@@ -1,60 +1,60 @@
 <template name ="storeOverview">
-	<div class="storeOverview">
-		<!-- Statements -->
-		<div class="col s12 m6 l4">
-			<div class="card">
-				<div class="card-content purple white-text">
-					<h4 class="card-stats-title">{{_ "store.statements"}}</h4>
-						<h4 class="card-stats-number">{{ statementsCount }}</h4>
-						<p class="card-stats-compare"><i class="mdi-hardware-keyboard-arrow-up"></i> {{ statementsLastWeek }} <span class="purple-text text-lighten-5">{{_ "store.statementslastweek"}}</span>
-					</p>
-				</div>
-				<div class="card-action purple darken-2 activator">
-					<span class="activator white-text text-lighten-5">{{_ "store.moreinfo"}}</span>
-				</div>
-				<div class="card-reveal purple darken-2">
-					<span class="card-title white-text text-lighten-5">{{_ "store.statements"}}<i class="material-icons right">close</i></span>
-					{{> sparkline type="line" array=weeklyStatementCount options=lineOptions }}
-				</div>
-			</div>
-		</div>
+    <div class="storeOverview">
+        <!-- Statements -->
+        <div class="col s12 m6 l4">
+            <div class="card">
+                <div class="card-content purple white-text">
+                    <h4 class="card-stats-title">{{_ "store.statements"}}</h4>
+                        <h4 class="card-stats-number">{{ statementsCount }}</h4>
+                        <p class="card-stats-compare"><i class="mdi-hardware-keyboard-arrow-up"></i> {{ statementsLastWeek }} <span class="purple-text text-lighten-5">{{_ "store.statementslastweek"}}</span>
+                    </p>
+                </div>
+                <div class="card-action purple darken-2 activator">
+                    <span class="activator white-text text-lighten-5">{{_ "store.moreinfo"}}</span>
+                </div>
+                <div class="card-reveal purple darken-2">
+                    <span class="card-title white-text text-lighten-5">{{_ "store.statements"}}<i class="material-icons right">close</i></span>
+                    {{> sparkline type="line" array=weeklyStatementCount options=lineOptions }}
+                </div>
+            </div>
+        </div>
 
-		<!-- Users -->
-		<div class="col s12 m6 l4">
-			<div class="card">
-				<div class="card-content pink white-text">
-					<h4 class="card-stats-title">{{_ "store.users"}}</h4>
-						<h4 class="card-stats-number">{{ usersCount }}</h4>
-						<p class="card-stats-compare"><i class="mdi-hardware-keyboard-arrow-up"></i> {{ activeUsers }} <span class="pink-text text-lighten-5">{{_ "store.activelastweek"}}</span>
-					</p>
-				</div>
-				<div class="card-action pink darken-2 activator">
-					<span class="activator white-text text-lighten-5">{{_ "store.moreinfo"}}</span>
-				</div>
-				<div class="card-reveal pink darken-2">
-					<span class="card-title white-text text-lighten-5">{{_ "store.users"}}<i class="material-icons right">close</i></span>
-					{{> sparkline type="line" array=weeklyUsersCount options=lineOptions }}
-				</div>
-			</div>
-		</div>
+        <!-- Users -->
+        <div class="col s12 m6 l4">
+            <div class="card">
+                <div class="card-content pink white-text">
+                    <h4 class="card-stats-title">{{_ "store.users"}}</h4>
+                        <h4 class="card-stats-number">{{ usersCount }}</h4>
+                        <p class="card-stats-compare"><i class="mdi-hardware-keyboard-arrow-up"></i> {{ activeUsers }} <span class="pink-text text-lighten-5">{{_ "store.activelastweek"}}</span>
+                    </p>
+                </div>
+                <div class="card-action pink darken-2 activator">
+                    <span class="activator white-text text-lighten-5">{{_ "store.moreinfo"}}</span>
+                </div>
+                <div class="card-reveal pink darken-2">
+                    <span class="card-title white-text text-lighten-5">{{_ "store.users"}}<i class="material-icons right">close</i></span>
+                    {{> sparkline type="line" array=weeklyUsersCount options=lineOptions }}
+                </div>
+            </div>
+        </div>
 
-		<!-- Statement Objects -->
-		<div class="col s12 m6 l4">
-			<div class="card">
-				<div class="card-content teal white-text">
-					<h4 class="card-stats-title">{{_ "store.activities"}}</h4>
-						<h4 class="card-stats-number">{{ activityCount }}</h4>
-						<p class="card-stats-compare"><i class="mdi-hardware-keyboard-arrow-up"></i> {{ activeActivities }} <span class="teal-text text-lighten-5">{{_ "store.activitieslastweek"}}</span>
-					</p>
-				</div>
-				<div class="card-action teal darken-2 activator">
-					<span class="activator white-text text-lighten-5">{{_ "store.moreinfo"}}</span>
-				</div>
-				<div class="card-reveal teal darken-2">
-					<span class="card-title white-text text-lighten-5">{{_ "store.activities"}}<i class="material-icons right">close</i></span>
-					{{> sparkline type="line" array=weeklyActivityCount options=lineOptions }}
-				</div>
-			</div>
-		</div>
-	</div>
+        <!-- Statement Objects -->
+        <div class="col s12 m6 l4">
+            <div class="card">
+                <div class="card-content teal white-text">
+                    <h4 class="card-stats-title">{{_ "store.activities"}}</h4>
+                        <h4 class="card-stats-number">{{ activityCount }}</h4>
+                        <p class="card-stats-compare"><i class="mdi-hardware-keyboard-arrow-up"></i> {{ activeActivities }} <span class="teal-text text-lighten-5">{{_ "store.activitieslastweek"}}</span>
+                    </p>
+                </div>
+                <div class="card-action teal darken-2 activator">
+                    <span class="activator white-text text-lighten-5">{{_ "store.moreinfo"}}</span>
+                </div>
+                <div class="card-reveal teal darken-2">
+                    <span class="card-title white-text text-lighten-5">{{_ "store.activities"}}<i class="material-icons right">close</i></span>
+                    {{> sparkline type="line" array=weeklyActivityCount options=lineOptions }}
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
