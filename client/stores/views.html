@@ -7,16 +7,16 @@
                 <div class="ui clearing segment">
                     <div id="openModal" class="ui right floated basic button">
                         <i class="icon plus"></i>
-                        Add
+                        {{_ "stores.add"}}
                     </div>
-                    <div class="ui left floated"><h4>Learning Record Stores</h4></div>
+                    <div class="ui left floated"><h4>{{_ "stores.lrs"}}</h4></div>
                 </div>
                 {{#each stores}}
                     <div class="ui clearing segment">
 
-                        <div class="ui right floated teal buttons">
-                            <div class="ui floating dropdown icon button">
-                                <i class="settings icon"></i>
+                        <div class="ui right floated teal buttons needsclick">
+                            <div class="ui floating dropdown icon button storeSettings needsclick">
+                                <i class="settings icon needsclick"></i>
                                 <div class="menu">
                                     <!--<div class="item storesActivate"><i class="edit icon"></i> {{_ "stores.activate"}}</div>-->
                                     <div class="item storesEdit"><i class="edit icon"></i> {{_ "stores.edit"}}</div>
@@ -52,10 +52,10 @@
         </div>
         <div class="actions">
             <div class="ui black deny button">
-                cancel
+                {{_ "stores.cancel"}}
             </div>
             <div class="ui positive right labeled icon button">
-                Insert
+                {{_ "stores.insert"}}
                 <i class="checkmark icon"></i>
             </div>
         </div> 
@@ -76,10 +76,10 @@
         </div>
         <div class="actions">
             <div class="ui black deny button">
-                cancel
+                {{_ "stores.cancel"}}
             </div>
             <div class="ui positive right labeled icon button">
-                Insert
+                {{_ "stores.update"}}
                 <i class="checkmark icon"></i>
             </div>
         </div> 
@@ -89,7 +89,7 @@
         {{#with deleteStore}}
         <i class="close icon"></i>
         <div class="header">
-            Remove {{ name }}?
+            {{_ "stores.remove"}} {{ name }}?
         </div>
         <div class="image content">
             <div class="image">
@@ -102,11 +102,11 @@
         <div class="actions">
             <div class="ui red basic cancel inverted button">
                 <i class="remove icon"></i>
-                No
+                {{_ "stores.no"}}
             </div>
             <div class="ui green ok inverted button">
                 <i class="checkmark icon"></i>
-                Yes
+                {{_ "stores.yes"}}
             </div>
         </div>
         {{/with}}

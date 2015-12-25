@@ -9,6 +9,7 @@
         "dashboard": "Dashboard",
         "users": "Users",
         "lrs": "Stores",
+        "plugins": "Plugins",
         "logout": "Logout"
     },
     "dashboard": {
@@ -19,7 +20,13 @@
         "activate": "Activate",
         "edit": "Edit",
         "remove": "Remove",
-        "updateStore": "Update Learning Record Store"
+        "updateStore": "Update Learning Record Store",
+        "lrs": "Learning Record Store",
+        "add": "Add",
+        "no": "No",
+        "yes": "Yes",
+        "cancel": "Cancel",
+        "update": "Update"
     },
     "store": {
         "statements": "Statements",

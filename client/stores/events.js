@@ -11,6 +11,11 @@ Template.stores.events({
             }
         }).modal('show');
     },
+    "click .storeSettings": function(event){
+        event.preventDefault();
+        event.stopPropagation();
+
+    },
     "click .positive": function(event){
         event.preventDefault();
         event.stopPropagation(); // Prevent going to the store
@@ -85,4 +90,4 @@ Template.stores.onCreated(function() {
     setTimeout(function(){
         $('.ui.dropdown').dropdown(); 
     }, 1000);
-});
+});    
