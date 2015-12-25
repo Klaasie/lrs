@@ -61,3 +61,7 @@ main, footer {
 .ui.segments {
     color: #000;
 }
+
+.ui.left.floated {
+    width: 90%;
+}

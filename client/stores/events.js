@@ -2,7 +2,7 @@ Template.stores.events({
     "click #openModal": function(event){
         event.preventDefault()
 
-        $('.ui.modal').modal({
+        $('#insertStore.ui.modal').modal({
             onApprove : function() {
 
                 $('#insertStoreForm').submit();
@@ -17,7 +17,7 @@ Template.stores.events({
 
         $('#insertStoreForm').submit();
     },
-    "click .collection-item": function(event){
+    "click .ui.left.floated": function(event){
         event.preventDefault();
         FlowRouter.go('/store/' + this._id);
     },
@@ -58,7 +58,17 @@ Template.stores.events({
         event.preventDefault();
         event.stopPropagation(); // Prevent going to the store
 
-        //Meteor.call('activateStore', this._id);
+        Session.set('deleteStore', this);
+
+        $('#removeStore.ui.modal').modal({
+            onApprove : function() {
+                var store = Session.get('deleteStore');
+                Meteor.call('removeStore', store._id);
+
+                return true;
+            }
+        }).modal('show');
+
     }
 });
 
@@ -73,13 +83,6 @@ Template.stores.onCreated(function() {
 
     // Enable dropdown
     setTimeout(function(){
-        // $('.editStore').dropdown({
-        //     constrainwidth: false,
-        //     beloworigin: true,
-        //     alignment: "right",
-        //     closeOnClick: true
-        // });
-        // 
         $('.ui.dropdown').dropdown(); 
     }, 1000);
 });

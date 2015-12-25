@@ -21,6 +21,10 @@ AutoForm.addHooks('insertStoreForm', {
         // Give feedback
         //Materialize.toast('Learning Record Store added!', 4000);
 
+        /**
+         * @todo We should really rethink this part, do we want logic of a template in the global hooks?
+         */
+
         // Close modal
          $('.ui.modal').modal('hide');
     }

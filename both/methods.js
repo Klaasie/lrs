@@ -62,6 +62,9 @@ Meteor.methods({
         var user = Meteor.user();
 
         Meteor.users.update({_id: user._id}, { $set: { "profile.activeStore": storeId } });
+    },
+    'removeStore': function(storeId){
+        Stores.remove(storeId);
     }
 });
 

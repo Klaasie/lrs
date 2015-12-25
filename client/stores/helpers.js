@@ -23,19 +23,7 @@ Template.stores.helpers({
     editDoc: function(){
         return Session.get('stores.doc');
     },
-    initDropdown: function(){
-        // Enable dropdown
-        //setTimeout(function(){
-            $('.editStore').dropdown({
-                constrainwidth: false,
-                beloworigin: true,
-                alignment: "right",
-                closeOnClick: true
-            });
-        //}, 1000);
-
-        $('.ui.dropdown').dropdown();
-
-        return '';
+    deleteStore: function(){
+        return Session.get('deleteStore');
     }
 });
