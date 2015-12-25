@@ -35,39 +35,45 @@ Template.storeOverview.helpers({
         var storeId = FlowRouter.getParam('storeId');
         var store = Stores.findOne(storeId);
 
-        var statements = Statements.find({ _id: { $in: store.statements } }).fetch();
+        if(typeof store.statements !== "undefined"){
+            var statements = Statements.find({ _id: { $in: store.statements } }).fetch();
 
-        var groupedStatements = _.groupBy(_.pluck(statements, 'stored'), function(stored){
-            var date = new Date(stored);
+            var groupedStatements = _.groupBy(_.pluck(statements, 'stored'), function(stored){
+                var date = new Date(stored);
 
-            return date.getWeekNumber();
-        });
+                return date.getWeekNumber();
+            });
 
 
-        var values = []
-        var previousKey = 0;
-        _.each(groupedStatements, function(value, key){
+            var values = []
+            var previousKey = 0;
+            _.each(groupedStatements, function(value, key){
 
-            // To get the correct time line, check if there are week numbers missing
-            if(previousKey && (key - previousKey) >= 2){
-                // Adding up to previous key
-                previousKey++;
-                // For each key missing, add 0 value
-                for (n = previousKey; n < key; n++ ){
-                    values.push(0);
+                // To get the correct time line, check if there are week numbers missing
+                if(previousKey && (key - previousKey) >= 2){
+                    // Adding up to previous key
+                    previousKey++;
+                    // For each key missing, add 0 value
+                    for (n = previousKey; n < key; n++ ){
+                        values.push(0);
+                    }
                 }
-            }
 
-            // Set the previous key
-            previousKey = key;
+                // Set the previous key
+                previousKey = key;
 
-            // Check if weeknumber is NaN, for now lets ignore these
-            if(!isNaN(key))
-                values.push(value.length);
-        });
+                // Check if weeknumber is NaN, for now lets ignore these
+                if(!isNaN(key))
+                    values.push(value.length);
+            });
 
-        // Return them values
-        return values;
+
+            // Return them values
+            return values;
+        }
+
+        return [];
+
     },
     usersCount: function() {
         var storeId = FlowRouter.getParam('storeId');
@@ -98,45 +104,49 @@ Template.storeOverview.helpers({
         var storeId = FlowRouter.getParam('storeId');
         var store = Stores.findOne(storeId);
 
-        var statements = Statements.find({ _id: { $in: store.statements } }).fetch();
+        if(typeof store.statements !== "undefined"){
+            var statements = Statements.find({ _id: { $in: store.statements } }).fetch();
 
-        var groupedStatements = _.groupBy(statements, function(statement){
+            var groupedStatements = _.groupBy(statements, function(statement){
 
-            var date = new Date(statement.stored);
+                var date = new Date(statement.stored);
 
-            return date.getWeekNumber();
-        });
-
-
-        var values = []
-        var previousKey = 0;
-        _.each(groupedStatements, function(value, key){
-
-            // To get the correct time line, check if there are week numbers missing
-            if(previousKey && (key - previousKey) >= 2){
-                // Adding up to previous key
-                previousKey++;
-                // For each key missing, add 0 value
-                for (n = previousKey; n < key; n++ ){
-                    values.push(0);
-                }
-            }
-
-            // Set the previous key
-            previousKey = key;
-
-            // Group the array by unique users based on mbox.
-            var users = _.groupBy(value, function(statement){
-                return statement.actor.mbox;
+                return date.getWeekNumber();
             });
 
-            // Check if weeknumber is NaN, for now lets ignore these
-            if(!isNaN(key))
-                values.push(Object.keys(users).length);
-        });
 
-        // Return them values
-        return values;
+            var values = []
+            var previousKey = 0;
+            _.each(groupedStatements, function(value, key){
+
+                // To get the correct time line, check if there are week numbers missing
+                if(previousKey && (key - previousKey) >= 2){
+                    // Adding up to previous key
+                    previousKey++;
+                    // For each key missing, add 0 value
+                    for (n = previousKey; n < key; n++ ){
+                        values.push(0);
+                    }
+                }
+
+                // Set the previous key
+                previousKey = key;
+
+                // Group the array by unique users based on mbox.
+                var users = _.groupBy(value, function(statement){
+                    return statement.actor.mbox;
+                });
+
+                // Check if weeknumber is NaN, for now lets ignore these
+                if(!isNaN(key))
+                    values.push(Object.keys(users).length);
+            });
+
+            // Return them values
+            return values;
+        }
+
+        return [];
     },
     activityCount: function() {
         var storeId = FlowRouter.getParam('storeId');
@@ -190,45 +200,49 @@ Template.storeOverview.helpers({
         var storeId = FlowRouter.getParam('storeId');
         var store = Stores.findOne(storeId);
 
-        var statements = Statements.find({ _id: { $in: store.statements } }).fetch();
+        if(typeof store.statements !== "undefined"){
+            var statements = Statements.find({ _id: { $in: store.statements } }).fetch();
 
-        var groupedStatements = _.groupBy(statements, function(statement){
+            var groupedStatements = _.groupBy(statements, function(statement){
 
-            var date = new Date(statement.stored);
+                var date = new Date(statement.stored);
 
-            return date.getWeekNumber();
-        });
-
-
-        var values = []
-        var previousKey = 0;
-        _.each(groupedStatements, function(value, key){
-
-            // To get the correct time line, check if there are week numbers missing
-            if(previousKey && (key - previousKey) >= 2){
-                // Adding up to previous key
-                previousKey++;
-                // For each key missing, add 0 value
-                for (n = previousKey; n < key; n++ ){
-                    values.push(0);
-                }
-            }
-
-            // Set the previous key
-            previousKey = key;
-
-            // Group the array by unique users based on mbox.
-            var users = _.groupBy(value, function(statement){
-                return statement.object.id;
+                return date.getWeekNumber();
             });
 
-            // Check if weeknumber is NaN, for now lets ignore these
-            if(!isNaN(key))
-                values.push(Object.keys(users).length);
-        });
 
-        // Return them values
-        return values;
+            var values = []
+            var previousKey = 0;
+            _.each(groupedStatements, function(value, key){
+
+                // To get the correct time line, check if there are week numbers missing
+                if(previousKey && (key - previousKey) >= 2){
+                    // Adding up to previous key
+                    previousKey++;
+                    // For each key missing, add 0 value
+                    for (n = previousKey; n < key; n++ ){
+                        values.push(0);
+                    }
+                }
+
+                // Set the previous key
+                previousKey = key;
+
+                // Group the array by unique users based on mbox.
+                var users = _.groupBy(value, function(statement){
+                    return statement.object.id;
+                });
+
+                // Check if weeknumber is NaN, for now lets ignore these
+                if(!isNaN(key))
+                    values.push(Object.keys(users).length);
+            });
+
+            // Return them values
+            return values;
+        }
+
+        return [];
     },
     lineOptions: function() {
         return {

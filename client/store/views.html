@@ -1,14 +1,18 @@
 <template name="store">
     {{#if Template.subscriptionsReady}}
-        <div class="row">
-
-            {{> storeOverview }}
-
+        <div class="one column row">
+            <div class="column">
+                {{> storeOverview }}
+            </div>
         </div>
 
-        <div class="row">
-            {{> timeline}}
-            {{> storeUsers}}
+        <div class="two column row">
+            <div class="column">
+                {{> timeline}}
+            </div>
+            <div class="column">
+                {{> storeUsers}}
+            </div>
         </div>
 
         <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
