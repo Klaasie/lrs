@@ -5,14 +5,6 @@
 var debug = false;
 
 /**
- * Configuring avatar plugin
- */
-Avatar.setOptions({
-    fallbackType: "default image",
-    gravatarDefault: "identicon"
-});
-
-/**
  * Extending user object
  */
 AccountsTemplates.addFields([

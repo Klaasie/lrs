@@ -1,7 +1,21 @@
 Template.stores.events({
     "click #openModal": function(event){
         event.preventDefault()
-        $('#addStore').openModal();
+
+        $('.ui.modal').modal({
+            onApprove : function() {
+
+                $('#insertStoreForm').submit();
+
+                return false; // This is being handled by the on submit hook
+            }
+        }).modal('show');
+    },
+    "click .positive": function(event){
+        event.preventDefault();
+        event.stopPropagation(); // Prevent going to the store
+
+        $('#insertStoreForm').submit();
     },
     "click .collection-item": function(event){
         event.preventDefault();
@@ -31,7 +45,14 @@ Template.stores.events({
 
         Session.set('stores.doc', this);
 
-        $('#updateStore').openModal();
+        $('#updateStore.ui.modal').modal({
+            onApprove : function() {
+
+                $('#updateStoreForm').submit();
+
+                return false; // This is being handled by the on submit hook
+            }
+        }).modal('show');
     },
     "click .storesRemove": function(event){
         event.preventDefault();
@@ -52,11 +73,13 @@ Template.stores.onCreated(function() {
 
     // Enable dropdown
     setTimeout(function(){
-        $('.editStore').dropdown({
-            constrainwidth: false,
-            beloworigin: true,
-            alignment: "right",
-            closeOnClick: true
-        });
+        // $('.editStore').dropdown({
+        //     constrainwidth: false,
+        //     beloworigin: true,
+        //     alignment: "right",
+        //     closeOnClick: true
+        // });
+        // 
+        $('.ui.dropdown').dropdown(); 
     }, 1000);
 });

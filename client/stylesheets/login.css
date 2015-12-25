@@ -1,0 +1,8 @@
+#login header, #login main, #login footer {
+    padding: 0;
+}
+
+#login {
+    position: relative;
+    top: 50px;
+}

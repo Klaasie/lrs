@@ -3,6 +3,11 @@
  */
 Meteor.startup(function(){
     /**
+     * Settings
+     */
+    AutoForm.setDefaultTemplate("semanticUI");
+
+    /**
      * Setting session variables
      */
     Session.setDefault('messages', false);
@@ -40,3 +45,5 @@ Template.application.helpers({
  */
 Template.application.rendered = function(){
 }
+
+BlazeLayout.setRoot('body');

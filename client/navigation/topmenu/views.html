@@ -1,5 +1,15 @@
 <template name="topmenu">
-    <ul class="right">
-        <li><a class="menu-apps" href="#"><i class="material-icons">view_module</i></a></li>
-    </ul>
+    <div class="ui borderless main menu fixed">
+        <div class="ui text container">
+            {{#if rwindow.innerWidth 'lt' '992'}}
+                <a class="view-ui item">
+                    <i class="sidebar icon"></i>
+                </a>
+            {{/if}}
+            <div href="#" class="header item">
+               <i class="cubes icon"></i>
+                Learning Record Store
+            </div>
+        </div>
+     </div>
 </template>

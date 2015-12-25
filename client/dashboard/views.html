@@ -1,5 +1,5 @@
 <template name="dashboard">
-    <div class="row">
+    <!--<div class="row">
         <div class="col s12 m12 l12">
             <div id="lrs" class="col s12 m12 l6">
                 <ul id="projects-collection" class="collection">
@@ -24,5 +24,34 @@
                 </ul>
             </div>
         </div>
+    </div>-->
+    <div class="ui stackable two column grid">
+
+        <div class="column">
+            <div class="ui segments">
+                <div class="ui segment">
+                    <h4>{{_ "dashboard.lrs"}}</h4>
+                </div>
+                {{#each stores}}
+                <div class="ui segment">
+                    <p>{{ name}}</p>
+                    <p>{{_ "dashboard.amountUsers"}}: {{ users.length }}</p>
+                    <p>{{_ "dashboard.amountStatements"}}: {{ statements.length }}</p>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="ui segments">
+                <div class="ui segment">
+                    <h4>{{_ "dashboard.lrs"}}</h4>
+                </div>
+                <div class="ui segment">
+                    <p>Top</p>
+                </div>
+            </div>
+        </div>
+
     </div>
 </template>

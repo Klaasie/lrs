@@ -34,6 +34,8 @@ Template.stores.helpers({
             });
         //}, 1000);
 
+        $('.ui.dropdown').dropdown();
+
         return '';
     }
 });

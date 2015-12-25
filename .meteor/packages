@@ -6,12 +6,9 @@
 
 accounts-password
 useraccounts:core
-useraccounts:materialize
-fourseven:scss
 tap:i18n
 dburles:collection-helpers
 fastclick
-materialize:materialize
 aldeed:autoform
 aldeed:collection2
 alanning:roles
@@ -31,7 +28,6 @@ random
 ejson
 spacebars
 check
-utilities:avatar
 webtempest:animate
 momentjs:moment
 copleykj:livestamp
@@ -41,3 +37,8 @@ kadira:flow-router
 kadira:blaze-layout
 nimble:restivus
 benmgreene:jquery-sparklines
+semantic:ui
+flemay:less-autoprefixer
+useraccounts:semantic-ui
+gadicohen:reactive-window
+fabienb4:autoform-semantic-ui

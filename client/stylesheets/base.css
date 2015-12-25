@@ -10,23 +10,19 @@ html {
 }
 
 body {
-    color: #212121;
+    color: #fcfcfc;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
 }
 
-header, main, footer {
-    padding-left: 240px;
-}
-
-#login header, #login main, #login footer {
-    padding: 0;
+main, footer {
+    padding-left: 150px;
 }
 
 @media only screen and (max-width : 992px) {
-    header, main, footer {
+    main, footer {
         padding-left: 0; 
     }
 }
@@ -35,44 +31,17 @@ header, main, footer {
     .container {
         width: 90%;
     }
-}
+}*/
 
 .center.loading {
     margin-top: 35%;
 }
 
-nav .nav-wrapper i {
-    height: 56px;
-    line-height: 56px;
-}
-
 #container {
-    top: 13px;
     position: relative;
-}
-
-.container {
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    -o-transition: all 0.3s;
-    -ms-transition: all 0.3s;
-    transition: all 0.3s;
-}
-
-.col {
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    -o-transition: all 0.3s;
-    -ms-transition: all 0.3s;
-    transition: all 0.3s;
-}
-
-nav ul {
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    -o-transition: all 0.3s;
-    -ms-transition: all 0.3s;
-    transition: all 0.3s;
+    top: 80px;
+    width: 95%;
+    left: 2.5%;
 }
 
 .card-panel {
@@ -87,7 +56,8 @@ nav ul {
     cursor: pointer;
 }
 
-/** Materialize overrides */
-.collection {
-    overflow: visible;
+
+/** Semantic ui */
+.ui.segments {
+    color: #000;
 }

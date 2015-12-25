@@ -8,7 +8,7 @@
     "menu": {
         "dashboard": "Dashboard",
         "users": "Users",
-        "lrs": "Learning Record Stores",
+        "lrs": "Stores",
         "logout": "Logout"
     },
     "dashboard": {

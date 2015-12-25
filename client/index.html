@@ -8,27 +8,27 @@
     {{#if authInProcess}}
         {{> loading}}
     {{else}}
-        <header>
-            <nav>
-                {{> sidemenu}}
-                <div class="nav-wrapper">
-                    <a href="#" class="brand-logo center"><i class="large material-icons">polymer</i></a>
-                    {{> topmenu}}
-                </div>
-            </nav>
-        </header>
-        <main>
-            <div id="container">
-                <div class="container">
+        {{#if rwindow.innerWidth 'lt' '992'}}
+            {{> sidemenu }}
+        {{/if}}
+        <div class="pusher">
+            {{#if rwindow.innerWidth 'gte' '992'}}
+                {{> sidemenuOnScreen }}
+            {{/if}}
+            <header>
+                {{> topmenu}}
+            </header>
+            <main>
+                <div id="container">
                     <!--{{#if message}} -->
                         {{> messages}}
                     <!-- {{/if}} -->
                     {{>Template.dynamic template=content}}
                 </div>
-            </div>
-        </main>
-        <footer>
-            <!-- footer -->
-        </footer>
+            </main>
+            <footer>
+                <!-- footer -->
+            </footer>
+        </div>
     {{/if}}
 </template>

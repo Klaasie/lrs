@@ -19,19 +19,17 @@ AutoForm.addHooks('insertStoreForm', {
         });
 
         // Give feedback
-        Materialize.toast('Learning Record Store added!', 4000);
+        //Materialize.toast('Learning Record Store added!', 4000);
 
         // Close modal
-        $('#addStore').closeModal();
+         $('.ui.modal').modal('hide');
     }
 });
 
 AutoForm.addHooks('updateStoreForm', {
     onSuccess: function(formType, result) {
-        // Give feedback
-        Materialize.toast('Learning Record Store updated!', 4000);
 
         // Close modal
-        $('#updateStore').closeModal();
+        $('.ui.modal').modal('hide');
     }
 });

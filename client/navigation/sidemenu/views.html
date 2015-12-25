@@ -1,17 +1,41 @@
 <template name="sidemenu">
-    <ul id="slide-out" class="side-nav fixed">
-        <li class="user grey lighten-3">
-            {{> avatar userId=userId
-                size="large"
-                shape="circle"
-                class="user-avatar"
-            }}
-            <div class="center-align grey-text text-darken-4">{{ fullname }}</div>
-        </li>
-        <li><a id="dashboard" class="waves-effect waves-light" href="#">{{_ "menu.dashboard"}}</a></li>
-        <li><a id="users" class="waves-effect waves-light" href="#">{{_ "menu.users"}}</a></li>
-        <li><a id="stores" class="waves-effect waves-light" href="#">{{_ "menu.lrs"}}</a></li>
-        <li><a id="logout" class="waves-effect waves-light" href="#">{{_ "menu.logout"}}</a></li>
-    </ul>
-    <a href="#" data-activates="slide-out" class="button-collapse toggle-menu"><i class="mdi-navigation-menu"></i></a>
+    <div class="ui left thin demo vertical inverted sidebar labeled icon menu">
+        <a id="dashboard" class="item">
+            <i class="home icon"></i>
+            {{_ "menu.dashboard"}}
+        </a>
+        <a id="users" class="item">
+            <i class="block layout icon"></i>
+            {{_ "menu.users"}}
+        </a>
+        <a id="stores" class="item">
+            <i class="university icon"></i>
+            {{_ "menu.lrs"}}
+        </a>
+        <a id="logout" class="item">
+            <i class="sign out icon"></i>
+            {{_ "menu.logout"}}
+        </a>
+    </div>
+</template>
+
+<template name="sidemenuOnScreen">
+    <div class="ui left thin demo vertical inverted sidebar labeled icon menu visible">
+        <a id="dashboard" class="item">
+            <i class="home icon"></i>
+            {{_ "menu.dashboard"}}
+        </a>
+        <a id="users" class="item">
+            <i class="block layout icon"></i>
+            {{_ "menu.users"}}
+        </a>
+        <a id="stores" class="item">
+            <i class="university icon"></i>
+            {{_ "menu.lrs"}}
+        </a>
+        <a id="logout" class="item">
+            <i class="sign out icon"></i>
+            {{_ "menu.logout"}}
+        </a>
+    </div>
 </template>

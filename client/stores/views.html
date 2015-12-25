@@ -1,5 +1,5 @@
 <template name="stores">
-    <div class="row">
+    <!--<div class="row">
         <div class="col s12 m12 l12">
             <ul class="collection">
                 {{#each stores}}
@@ -28,35 +28,91 @@
         <a id="openModal" href="#addStore" class="btn-floating btn-large red modal-trigger">
             <i class="large material-icons">add</i>
         </a>
-    </div>
+    </div>-->
 
-    <!-- Modal Structure -->
-    <div id="addStore" class="modal">
-        {{#autoForm collection="Stores" id="insertStoreForm" type="insert"}}
-            <div class="modal-content">
-                <h4>{{_ "stores.addStore" }}</h4>
+    <div class="ui stackable two column grid">
+
+        <div class="column">
+            <div class="ui segments">
+                <div class="ui clearing segment">
+                    <div class="ui left floated"><h4>Learning Record Stores</h4></div>
+                    <div id="openModal" class="ui right floated basic button">
+                        <i class="icon plus"></i>
+                        Add
+                    </div>
+                </div>
+                {{#each stores}}
+                    <div class="ui clearing segment">
+
+                        <div class="ui right floated teal buttons">
+                            <div class="ui floating dropdown icon button">
+                                <i class="settings icon"></i>
+                                <div class="menu">
+                                    <!--<div class="item storesActivate"><i class="edit icon"></i> {{_ "stores.activate"}}</div>-->
+                                    <div class="item storesEdit"><i class="edit icon"></i> {{_ "stores.edit"}}</div>
+                                    <div class="item storesRemove"><i class="delete icon"></i> {{_ "stores.remove"}}</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ui left floated">
+                            <h4>{{ name }}</h4>
+                            <p>{{ description }}</p>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+
+        </div>
+
+    </div>
+    
+    <div id="insertLrs" class="ui modal">
+        <i class="close icon"></i>
+        <div class="header">
+            {{_ "stores.addStore" }}
+        </div>
+        
+        <div class="content">
+            {{#autoForm collection="Stores" id="insertStoreForm" type="insert"}}
                 {{> afQuickField name='name'}}
                 {{> afQuickField name='description'}}
                 {{> afQuickField name='userId'}}
+            {{/autoForm}}
+        </div>
+        <div class="actions">
+            <div class="ui black deny button">
+                cancel
             </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">Insert</button>
-                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+            <div class="ui positive right labeled icon button">
+                Insert
+                <i class="checkmark icon"></i>
             </div>
-        {{/autoForm}}
+        </div> 
     </div>
 
-    <div id="updateStore" class="modal">
-        {{#autoForm collection="Stores" doc=editDoc id="updateStoreForm" type="update"}}
-            <div class="modal-content">
-                <h4>{{_ "stores.updateStore" }}</h4>
+
+    <div id="updateStore" class="ui modal">
+        <i class="close icon"></i>
+        <div class="header">
+            {{_ "stores.updateStore" }}
+        </div>
+        
+        <div class="content">
+            {{#autoForm collection="Stores" doc=editDoc id="updateStoreForm" type="update"}}
                 {{> afQuickField name='name'}}
                 {{> afQuickField name='description'}}
+            {{/autoForm}}
+        </div>
+        <div class="actions">
+            <div class="ui black deny button">
+                cancel
             </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">Update</button>
-                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+            <div class="ui positive right labeled icon button">
+                Insert
+                <i class="checkmark icon"></i>
             </div>
-        {{/autoForm}}
+        </div> 
     </div>
+
 </template>
