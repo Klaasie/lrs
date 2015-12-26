@@ -11,3 +11,7 @@
 .card-stats-number {
     font-size: 4em;
 }
+
+#storeUsers .item .ui.left.floated {
+    width: 70%;
+}

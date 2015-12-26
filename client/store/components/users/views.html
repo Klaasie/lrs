@@ -1,19 +1,17 @@
 <template name="storeUsers">
-    <div class="col s12 m12 l6">
-        <ul class="collection with-header">
-            <li class="collection-header"><h5>{{_ "store.statementbreakdown"}}</h5></li>
+    <div id="storeUsers" class="ui segment">
+        <h3>{{_ "store.statementbreakdown"}}</h3>
+        <div class="ui divided items">
             {{#each users}}
-                <li class="collection-item">
-                    <div>
+                <div class="item">
+                    <div class="ui left floated">
                         {{ name }}
-                        <a href="#!" class="secondary-content">
-                            <div>
-                                {{ statementsCount }} {{_ "store.statements"}}
-                            </div>
-                        </a>
                     </div>
-                </li>
+                    <div class="ui right floated">
+                        {{ statementsCount }} {{_ "store.statements"}}
+                    </div>
+                </div>
             {{/each}}
-        </ul>
+        </div>
     </div>
 </template>
