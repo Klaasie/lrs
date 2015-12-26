@@ -57,6 +57,9 @@ main, footer {
     cursor: pointer;
 }
 
+.white {
+    background-color: #FFF!important;
+}
 
 /** Semantic ui */
 html.ios, html.ios body {

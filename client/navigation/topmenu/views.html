@@ -1,15 +1,29 @@
 <template name="topmenu">
-    <div class="ui borderless main menu fixed">
+    <div class="ui top fixed menu">
         <div class="ui text container">
             {{#if rwindow.innerWidth 'lt' '992'}}
                 <a class="view-ui item">
                     <i class="sidebar icon"></i>
                 </a>
             {{/if}}
-            <div href="#" class="header item">
+            <div class="header item">
                <i class="cubes icon"></i>
-                Learning Record Store
+                {{_ "appname"}}
             </div>
         </div>
+        {{#if rightMenu}}
+            <div class="right menu">
+                <div class="item">
+                    <div class="ui compact icon buttons needsclick">
+                        <div class="ui dropdown white icon button storeSettings needsclick">
+                            <i class="settings icon needsclick"></i>
+                            <div class="menu">
+                                <div id="uploadUsersModal" class="item"><i class="upload icon"></i> {{_ "topmenu.uploadUsers"}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {{/if}}
      </div>
 </template>

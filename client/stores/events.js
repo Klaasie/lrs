@@ -88,6 +88,6 @@ Template.stores.onCreated(function() {
 
     // Enable dropdown
     setTimeout(function(){
-        $('.ui.dropdown').dropdown(); 
+        $('.ui.dropdown').dropdown();
     }, 1000);
 });    

@@ -1,5 +1,6 @@
 <template name="store">
     {{#if Template.subscriptionsReady}}
+
         <div class="one column row">
             <div class="column">
                 {{> storeOverview }}
@@ -15,16 +16,40 @@
             </div>
         </div>
 
-        <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+        <!--<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
             <a class="btn-floating btn-large red">
                 <i class="large material-icons">mode_edit</i>
             </a>
             <ul>
                 <li><a href="#uploadUsersModal" class="btn-floating blue modal-trigger"><i id="uploadUsers" class="material-icons">file_upload</i></a></li>
             </ul>
+        </div>-->
+
+        <div id="uploadUsers" class="ui modal">
+            <i class="close icon"></i>
+            <div class="header">
+                {{_ "stores.uploadUsers" }}
+            </div>
+            
+            <div class="content">
+                <div class="ui basic segment">
+                    <div class="ui fluid action input">
+                        <input id="userCsv" type="file">
+                    </div>
+                </div>
+            </div>
+            <div class="actions">
+                <div class="ui black deny button">
+                    {{_ "stores.cancel"}}
+                </div>
+                <div class="ui positive right labeled icon button">
+                    {{_ "stores.insert"}}
+                    <i class="checkmark icon"></i>
+                </div>
+            </div> 
         </div>
 
-        <div id="uploadUsersModal" class="modal">
+        <!--<div id="uploadUsersModal" class="modal">
             <div class="modal-content">
                 <h4>{{_ "store.uploadUsers" }}</h4>
                     <div class="file-field input-field">
@@ -41,6 +66,6 @@
                 <button type="submit" class="btn submit-user-csv btn-primary">Insert</button>
                 <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
             </div>
-        </div>
+        </div>-->
     {{/if}}
 </template>

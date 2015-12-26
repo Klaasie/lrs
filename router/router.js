@@ -38,6 +38,7 @@ FlowRouter.route('/stores', {
  * Router for store/:id page
  */
 FlowRouter.route('/store/:storeId', {
+    name: "store",
     action: function() {
         BlazeLayout.render("application", {content: "store"});
     }
