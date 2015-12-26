@@ -7,3 +7,7 @@
     -moz-box-sizing: content-box;
     box-sizing: content-box;
 }
+
+.card-stats-number {
+    font-size: 4em;
+}

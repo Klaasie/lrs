@@ -15,10 +15,13 @@
                     <div class="ui clearing segment">
 
                         <div class="ui right floated teal buttons needsclick">
+                        <div class="ui {{ statusClass }} label">
+                            {{ status }}
+                        </div>
                             <div class="ui floating dropdown icon button storeSettings needsclick">
                                 <i class="settings icon needsclick"></i>
                                 <div class="menu">
-                                    <!--<div class="item storesActivate"><i class="edit icon"></i> {{_ "stores.activate"}}</div>-->
+                                    <div class="item storesActivate"><i class="checkmark icon"></i> {{_ "stores.activate"}}</div>
                                     <div class="item storesEdit"><i class="edit icon"></i> {{_ "stores.edit"}}</div>
                                     <div class="item storesRemove"><i class="delete icon"></i> {{_ "stores.remove"}}</div>
                                 </div>

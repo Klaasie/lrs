@@ -1,17 +1,24 @@
 <template name="timeline">
-    <div class="col l6 m12 s12">
-        <ul class="collection with-header">
-            <li class="collection-header"><h5>{{_ "store.statements"}}</h5></li>
+    <div class="ui segment">
+        <h4>{{_ "store.statements"}}</h4>
+        <div class="ui feed">
             {{#transition in="fadeInDown" out="fadeOutDown" }}
                 {{#each statements}}
-                    <li class="collection-item">
-                        {{ sentence }}
-                        <div class="grey-text">
-                            {{livestamp timestamp }}
+                    <div class="event">
+                        <div class="label">
+                            <i class="book icon"></i>
                         </div>
-                    </li>
+                        <div class="content">
+                            <div class="summary">
+                                {{ sentence }}
+                                <div class="date">
+                                    {{livestamp timestamp}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 {{/each}}
             {{/transition}}
-        </ul>
+        </div>
     </div>
 </template>

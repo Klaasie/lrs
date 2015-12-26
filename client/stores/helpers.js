@@ -6,7 +6,7 @@ Template.stores.helpers({
         var user = Meteor.user();
 
         if(user.profile.activeStore == this._id){
-            return "green white-text";
+            return "teal";
         }
 
         return "";
