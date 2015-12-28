@@ -1,4 +1,5 @@
 {
+    "appname": "Project LRS",
     "main": {
         "oops": "Oops!",
         "pagedoesnotexist": "This page doesn't exist",
@@ -11,6 +12,9 @@
         "lrs": "Stores",
         "plugins": "Plugins",
         "logout": "Logout"
+    },
+    "topmenu": {
+        "uploadUsers": "Upload users"
     },
     "dashboard": {
         "intro": "Welcome!"
@@ -26,7 +30,8 @@
         "no": "No",
         "yes": "Yes",
         "cancel": "Cancel",
-        "update": "Update"
+        "update": "Update",
+        "insert": "Insert"
     },
     "store": {
         "statements": "Statements",
@@ -37,6 +42,8 @@
         "activitieslastweek": "activities last week",
         "moreinfo": "More info",
         "statementbreakdown": "Statement breakdown",
-        "uploadUsers": "Upload users"
+        "uploadUsers": "Upload users",
+        "insert": "Insert",
+        "cancel": "Cancel"
     }
 }

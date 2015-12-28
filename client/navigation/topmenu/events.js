@@ -33,5 +33,7 @@ Template.topmenu.events({
 });
 
 Template.topmenu.onRendered(function(){
-    $('.ui.dropdown').dropdown();
+    setTimeout(function() {
+        $('.ui.dropdown').dropdown();
+    }, 1000);
 });
