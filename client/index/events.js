@@ -1,5 +1,5 @@
 Template.index.events({
-    "click #login": function(event){
+    "click .login": function(event){
         event.preventDefault();
         FlowRouter.go('login');
     },
@@ -14,6 +14,5 @@ Template.index.events({
 })
 
 Template.index.rendered = function(){
-    $('.button-collapse').sideNav();
-    $('.parallax').parallax();
+    
 }
